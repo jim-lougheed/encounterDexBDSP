@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import PokemonListing from "../PokemonListing/PokemonListing";
+
 function RouteInfo({ route }) {
   const [pokemon, setPokemon] = useState(null);
   useEffect(() => {
@@ -28,45 +30,7 @@ function RouteInfo({ route }) {
       <ul>
         {filteredPokemon &&
           filteredPokemon.map((pokemon) => {
-            console.log(pokemon);
-            return (
-              <li>
-                <h3>{pokemon.pokemon.name}</h3>
-                <ul>
-                  {pokemon.version_details[1]
-                    ? pokemon.version_details[1].encounter_details.map(
-                        (detail) => {
-                          return (
-                            <li>
-                              <p>Method: {detail.method.name}</p>
-                              <p>
-                                Condition:
-                                {detail.condition_values[0] != undefined
-                                  ? detail.condition_values[0].name
-                                  : null}
-                              </p>
-                            </li>
-                          );
-                        }
-                      )
-                    : pokemon.version_details[0].encounter_details.map(
-                        (detail) => {
-                          return (
-                            <li>
-                              <p>Method: {detail.method.name}</p>
-                              <p>
-                                Condition:{" "}
-                                {detail.condition_values[0] != undefined
-                                  ? detail.condition_values[0].name
-                                  : null}
-                              </p>
-                            </li>
-                          );
-                        }
-                      )}
-                </ul>
-              </li>
-            );
+            return <PokemonListing pokemon={pokemon} />;
           })}
       </ul>
     </>

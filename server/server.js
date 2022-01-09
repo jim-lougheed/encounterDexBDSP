@@ -19,4 +19,15 @@ app.get("/:route", (req, res) => {
     });
 });
 
+app.get("/pokemonPic/:pokemonName", (req, res) => {
+  axios
+    .get(`https://pokeapi.co/api/v2/pokemon/${req.params.pokemonName}`)
+    .then(({ data }) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 app.listen(PORT, () => console.log("Server running on port 3000"));
