@@ -27,12 +27,7 @@ function RouteInfo({ route }) {
     <>
       <h1>Route Info</h1>
       <p>{route}</p>
-      <ul>
-        {filteredPokemon &&
-          filteredPokemon.map((pokemon) => {
-            return <PokemonListing pokemon={pokemon} />;
-          })}
-      </ul>
+      <PokemonListing pokemon={filteredPokemon} />
     </>
   );
 }
