@@ -8,9 +8,7 @@ app.use(cors());
 
 app.get("/:route", (req, res) => {
   axios
-    .get(
-      `https://pokeapi.co/api/v2/location-area/sinnoh-${req.params.route}-area/`
-    )
+    .get(`https://pokeapi.co/api/v2/location-area/${req.params.route}/`)
     .then(({ data }) => {
       res.send(data);
     })
