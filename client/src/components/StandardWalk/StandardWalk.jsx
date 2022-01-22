@@ -1,3 +1,5 @@
+import Sprite from "../Sprite/Sprite";
+
 function StandardWalk({ pokemon }) {
   console.log(pokemon);
   return (
@@ -9,6 +11,7 @@ function StandardWalk({ pokemon }) {
             return (
               <li>
                 <p>{pokemon.pokemon.name}</p>
+                <Sprite pokemonName={pokemon.pokemon.name} />
               </li>
             );
           })}
