@@ -1,7 +1,7 @@
-function Selection({ setRoute }) {
+function Selection() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    setRoute(e.target.location_area.value);
+    console.log(e.target.location_area.value);
   };
 
   return (
