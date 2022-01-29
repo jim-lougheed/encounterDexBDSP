@@ -11,14 +11,36 @@ function EncounterDetails({ pokemon: { version_details } }) {
     },
     0
   );
-  console.log(maxLevel);
-  console.log(filteredEncounterDetails);
+  const minLevel = filteredEncounterDetails.encounter_details.reduce(
+    (acc, detail) => {
+      return detail.min_level < acc ? detail.min_level : acc;
+    },
+    100
+  );
+
+  const conditions = filteredEncounterDetails.encounter_details
+    .flatMap((detail) => {
+      return detail.condition_values;
+    })
+    .map((condition) => {
+      return condition.name;
+    });
+  console.log(filteredEncounterDetails.encounter_details.length);
+  console.log(conditions);
   return (
     <>
       <h3>Encounter Rate</h3>
       <p>{filteredEncounterDetails.max_chance}%</p>
       <h3>Max Level</h3>
-      <p>{maxLevel}%</p>
+      <p>{maxLevel}</p>
+      <h3>Min Level</h3>
+      <p>{minLevel}</p>
+      <h3>Conditions</h3>
+      <ul>
+        {conditions.map((condition) => {
+          return <li>{condition}</li>;
+        })}
+      </ul>
     </>
   );
 }
