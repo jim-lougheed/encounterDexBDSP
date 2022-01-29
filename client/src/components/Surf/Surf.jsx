@@ -1,3 +1,6 @@
+import Sprite from "../Sprite/Sprite";
+import EncounterDetails from "../EncounterDetails/EncounterDetails";
+
 function Surf({ pokemon }) {
   console.log(pokemon);
   return (
@@ -9,6 +12,8 @@ function Surf({ pokemon }) {
             return (
               <li>
                 <p>{pokemon.pokemon.name}</p>
+                <Sprite pokemonName={pokemon.pokemon.name} />
+                <EncounterDetails pokemon={pokemon} />
               </li>
             );
           })}

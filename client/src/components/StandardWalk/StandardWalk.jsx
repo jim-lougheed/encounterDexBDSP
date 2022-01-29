@@ -1,4 +1,5 @@
 import Sprite from "../Sprite/Sprite";
+import EncounterDetails from "../EncounterDetails/EncounterDetails";
 
 function StandardWalk({ pokemon }) {
   console.log(pokemon);
@@ -12,6 +13,7 @@ function StandardWalk({ pokemon }) {
               <li>
                 <p>{pokemon.pokemon.name}</p>
                 <Sprite pokemonName={pokemon.pokemon.name} />
+                <EncounterDetails pokemon={pokemon} />
               </li>
             );
           })}
