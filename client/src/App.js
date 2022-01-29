@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <header className="header__app">
-        <a className="header__logo">
+        <a href="/" className="header__logo">
           <img
             className="header__image"
             src={Logo}
