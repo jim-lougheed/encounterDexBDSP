@@ -15,7 +15,7 @@
     "axios": "^0.24.0",
     "nodemon": "^2.0.15",
     "react-router-dom": "^6.2.1",
-    "sass": "^1.45.2"
+    "sass": "^1.49.0"
   },
   "browserslist": {
     "production": [
