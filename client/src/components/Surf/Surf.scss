@@ -1,0 +1,14 @@
+.pokemon {
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    width: 80vw;
+  }
+  &__card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+}

@@ -21,12 +21,11 @@ function RouteInfo({ route }) {
         return detail.version.name === "pearl";
       });
     });
-  console.log(filteredPokemon);
+  console.log(route);
 
   return (
     <>
-      <h1>Route Info</h1>
-      <p>{route}</p>
+      {route ? <h1>{route}</h1> : <h1>Select an area</h1>}
       <PokemonListing pokemon={filteredPokemon} />
     </>
   );

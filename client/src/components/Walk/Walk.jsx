@@ -12,25 +12,31 @@ function Walk({ pokemon }) {
     return pokemon.filter((p) => {
       if (p.version_details[0].version.name === "pearl") {
         return p.version_details[0].encounter_details.some((detail) => {
-          return (detail.condition_values =
-            [] ||
-            (detail.condition_values[0] &&
-              (detail.condition_values[0].name === condition1 ||
-                detail.condition_values[0].name === condition2 ||
-                detail.condition_values[0].name === condition3 ||
-                detail.condition_values[0].name === condition4 ||
-                detail.condition_values[0].name === condition5)));
+          return detail.condition_values.some((value) => {
+            return (
+              value.name !== "radar-on" &&
+              value.name !== "swarm-yes" &&
+              value.name !== "slot2-ruby" &&
+              value.name !== "slot2-sapphire" &&
+              value.name !== "slot2-firered" &&
+              value.name !== "slot2-emerald" &&
+              value.name !== "slot2-leafgreen"
+            );
+          });
         });
       } else {
         return p.version_details[1].encounter_details.some((detail) => {
-          return (detail.condition_values =
-            [] ||
-            (detail.condition_values[0] &&
-              (detail.condition_values[0].name === condition1 ||
-                detail.condition_values[0].name === condition2 ||
-                detail.condition_values[0].name === condition3 ||
-                detail.condition_values[0].name === condition4 ||
-                detail.condition_values[0].name === condition5)));
+          return detail.condition_values.some((value) => {
+            return (
+              value.name !== "radar-on" &&
+              value.name !== "swarm-yes" &&
+              value.name !== "slot2-ruby" &&
+              value.name !== "slot2-sapphire" &&
+              value.name !== "slot2-firered" &&
+              value.name !== "slot2-emerald" &&
+              value.name !== "slot2-leafgreen"
+            );
+          });
         });
       }
     });
@@ -52,36 +58,6 @@ function Walk({ pokemon }) {
     <>
       <h3>Walk</h3>
       <StandardWalk pokemon={standardWalkPokemon} />
-      {/* <h3>{pokemon.pokemon.name}</h3>
-      <img src={pokemonSprite}></img>
-      <>
-        {pokemon.version_details[1]
-          ? pokemon.version_details[1].encounter_details.map((detail) => {
-              return (
-                <li>
-                  <p>Method: {detail.method.name}</p>
-                  <p>
-                    Condition:
-                    {detail.condition_values[0] != undefined
-                      ? detail.condition_values[0].name
-                      : null}
-                  </p>
-                </li>
-              );
-            })
-          : pokemon.version_details[0].encounter_details.map((detail) => {
-              return (
-                <li>
-                  <p>Method: {detail.method.name}</p>
-                  <p>
-                    Condition:{" "}
-                    {detail.condition_values[0] != undefined
-                      ? detail.condition_values[0].name
-                      : null}
-                  </p>
-                </li>
-              );
-            })} */}
     </>
   );
 }

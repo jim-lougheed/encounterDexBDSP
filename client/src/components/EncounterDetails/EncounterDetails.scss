@@ -1,0 +1,45 @@
+p {
+  margin: 1rem;
+}
+
+.level {
+  &__title {
+    text-align: center;
+  }
+  &__max-min-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__header {
+  }
+  &__value {
+    text-align: center;
+  }
+}
+
+.conditions {
+  &__title {
+    text-align: center;
+  }
+  &__container {
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+}
+
+.condition {
+  border: 1px solid blue;
+  list-style: none;
+  width: 49%;
+  &__icon {
+    text-align: center;
+  }
+  &__level-chance-container {
+    display: flex;
+  }
+  &__value {
+    text-align: center;
+  }
+}
