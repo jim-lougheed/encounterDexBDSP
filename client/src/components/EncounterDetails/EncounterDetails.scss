@@ -2,6 +2,11 @@ p {
   margin: 1rem;
 }
 
+.level-conditions-container {
+  background-color: springgreen;
+  padding: 1rem;
+}
+
 .level {
   &__title {
     text-align: center;
@@ -30,9 +35,13 @@ p {
 }
 
 .condition {
+  background-color: white;
   border: 1px solid blue;
   list-style: none;
+  margin: 0 auto;
   width: 49%;
+  &__container {
+  }
   &__icon {
     text-align: center;
   }

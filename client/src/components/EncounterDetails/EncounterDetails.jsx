@@ -58,51 +58,53 @@ function EncounterDetails({ pokemon: { version_details } }) {
 
   return (
     <>
-      <h2 className="level__title">Level</h2>
-      <section className="level__max-min-container">
-        <div className="level__container">
-          <h3 className="level__max-min">Min</h3>
-          <p className="level__value">{minLevel}</p>
-        </div>
-        <div className="level__container">
-          <h3 className="level__max-min">Max</h3>
-          <p className="level__value">{maxLevel}</p>
-        </div>
-      </section>
-      <h2 className="conditions__title">Conditions</h2>
-      <ul className="conditions__container">
-        {conditions.map((condition, i) => {
-          return (
-            condition.condition_values[0]?.name !== "FIRE RED" &&
-            condition.condition_values[0]?.name !== "LEAF GREEN" &&
-            condition.condition_values[0]?.name !== "EMERALD" &&
-            condition.condition_values[0]?.name !== "RUBY" &&
-            condition.condition_values[0]?.name !== "SAPPHIRE" && (
-              <li key={i} className="condition">
-                <p className="condition__icon">
-                  {condition.condition_values[0]
-                    ? condition.condition_values[0].name
-                    : "🚫"}
-                </p>
-                <section className="condition__level-chance-container">
-                  <div className="condition__container">
-                    <p>Level</p>
-                    <p className="condition__value">
-                      {condition.max_level === condition.min_level
-                        ? condition.max_level
-                        : `${condition.min_level}-${condition.max_level}`}
-                    </p>
-                  </div>
-                  <div className="condition__container">
-                    <p>Chance</p>
-                    <p className="condition__value">{condition.chance}%</p>
-                  </div>
-                </section>
-              </li>
-            )
-          );
-        })}
-      </ul>
+      <div className="level-conditions-container">
+        <h2 className="level__title">Level</h2>
+        <section className="level__max-min-container">
+          <div className="level__container">
+            <h3 className="level__max-min">Min</h3>
+            <p className="level__value">{minLevel}</p>
+          </div>
+          <div className="level__container">
+            <h3 className="level__max-min">Max</h3>
+            <p className="level__value">{maxLevel}</p>
+          </div>
+        </section>
+        <h2 className="conditions__title">Conditions</h2>
+        <ul className="conditions__container">
+          {conditions.map((condition, i) => {
+            return (
+              condition.condition_values[0]?.name !== "FIRE RED" &&
+              condition.condition_values[0]?.name !== "LEAF GREEN" &&
+              condition.condition_values[0]?.name !== "EMERALD" &&
+              condition.condition_values[0]?.name !== "RUBY" &&
+              condition.condition_values[0]?.name !== "SAPPHIRE" && (
+                <li key={i} className="condition">
+                  <p className="condition__icon">
+                    {condition.condition_values[0]
+                      ? condition.condition_values[0].name
+                      : "🚫"}
+                  </p>
+                  <section className="condition__level-chance-container">
+                    <div className="condition__container">
+                      <p>Level</p>
+                      <p className="condition__value">
+                        {condition.max_level === condition.min_level
+                          ? condition.max_level
+                          : `${condition.min_level}-${condition.max_level}`}
+                      </p>
+                    </div>
+                    <div className="condition__container">
+                      <p>Chance</p>
+                      <p className="condition__value">{condition.chance}%</p>
+                    </div>
+                  </section>
+                </li>
+              )
+            );
+          })}
+        </ul>
+      </div>
     </>
   );
 }
