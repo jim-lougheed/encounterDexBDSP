@@ -1,5 +1,5 @@
 import StandardWalk from "../StandardWalk/StandardWalk";
-
+import PixelBanner from "../PixelBanner/PixelBanner";
 import "./Walk.scss";
 
 function Walk({ pokemon }) {
@@ -59,10 +59,7 @@ function Walk({ pokemon }) {
   return (
     <>
       <div className="walk-container">
-        <h3>Walk</h3>
-        <a href="https://www.freepik.com/vectors/shapes">
-          Shapes vector created by starline - www.freepik.com
-        </a>
+        <PixelBanner banner="walk"></PixelBanner>
         <StandardWalk pokemon={standardWalkPokemon} />
       </div>
     </>

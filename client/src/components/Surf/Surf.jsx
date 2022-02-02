@@ -1,5 +1,6 @@
 import Sprite from "../Sprite/Sprite";
 import EncounterDetails from "../EncounterDetails/EncounterDetails";
+import PixelBanner from "../PixelBanner/PixelBanner";
 
 import "./Surf.scss";
 
@@ -8,7 +9,8 @@ function Surf({ pokemon }) {
   return (
     <>
       <div className="surf-container">
-        <h3>Surf</h3>
+        <PixelBanner banner="surf"></PixelBanner>
+
         <div className="surf-pokemon__container">
           {pokemon &&
             pokemon.map((pokemon) => {
