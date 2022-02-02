@@ -1,5 +1,7 @@
 import StandardWalk from "../StandardWalk/StandardWalk";
 
+import "./Walk.scss";
+
 function Walk({ pokemon }) {
   const filterCondition = (
     pokemon,
@@ -56,8 +58,13 @@ function Walk({ pokemon }) {
   console.log(pokemon);
   return (
     <>
-      <h3>Walk</h3>
-      <StandardWalk pokemon={standardWalkPokemon} />
+      <div className="walk-container">
+        <h3>Walk</h3>
+        <a href="https://www.freepik.com/vectors/shapes">
+          Shapes vector created by starline - www.freepik.com
+        </a>
+        <StandardWalk pokemon={standardWalkPokemon} />
+      </div>
     </>
   );
 }

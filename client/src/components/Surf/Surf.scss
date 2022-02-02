@@ -1,3 +1,9 @@
+.surf-container {
+  background: url("../../assets/images/surf-image.png");
+  background-position: 50% 100%;
+  background-size: cover;
+}
+
 .surf-pokemon {
   &__container {
     display: flex;
@@ -13,6 +19,7 @@
   }
   &__card {
     background: url("../../assets/images/lightblue.jpg");
+    background-size: cover;
     border-color: rgb(9, 7, 92);
     border-radius: 20px;
     border-style: solid;
