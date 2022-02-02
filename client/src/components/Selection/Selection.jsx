@@ -1,12 +1,12 @@
-function Selection({ setRoute }) {
+function Selection({ setRoute, setRouteName }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setRoute(e.target.location_area.value);
+    setRouteName(e.target.location_area.selectedOptions[0].innerText);
   };
 
   return (
     <>
-      <h1>Selection Component</h1>
       <form onSubmit={handleSubmit}>
         <select name="location_area">
           <option value="canalave-city-area">Canalave City</option>

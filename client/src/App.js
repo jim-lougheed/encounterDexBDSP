@@ -8,6 +8,7 @@ import Logo from "./assets/logo/encounterDex.png";
 
 function App() {
   const [route, setRoute] = useState(null);
+  const [routeName, setRouteName] = useState(null);
 
   return (
     <div className="App">
@@ -20,8 +21,12 @@ function App() {
           ></img>
         </a>
       </header>
-      <Selection setRoute={setRoute} />
-      <RouteInfo route={route} />
+      <RouteInfo
+        route={route}
+        routeName={routeName}
+        setRoute={setRoute}
+        setRouteName={setRouteName}
+      />
     </div>
   );
 }

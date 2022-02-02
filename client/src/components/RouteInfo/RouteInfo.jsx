@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import PokemonListing from "../PokemonListing/PokemonListing";
+import Selection from "../Selection/Selection";
 
-function RouteInfo({ route }) {
+import "./RouteInfo.scss";
+
+function RouteInfo({ route, routeName, setRoute, setRouteName }) {
   const [pokemon, setPokemon] = useState(null);
   useEffect(() => {
     getPokemon();
@@ -21,11 +24,17 @@ function RouteInfo({ route }) {
         return detail.version.name === "pearl";
       });
     });
-  console.log(route);
+  console.log(route, routeName);
 
   return (
     <>
-      {route ? <h1>{route}</h1> : <h1>Select an area</h1>}
+      <div className="route__header">
+        <h1 className="route__title">
+          {routeName ? routeName : "Select an area"}
+        </h1>
+        <Selection setRoute={setRoute} setRouteName={setRouteName} />
+      </div>
+
       <PokemonListing pokemon={filteredPokemon} />
     </>
   );

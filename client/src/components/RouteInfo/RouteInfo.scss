@@ -1,0 +1,16 @@
+.route {
+  &__header {
+    align-items: center;
+    background-image: url("../../assets/images/title-card.png");
+    background-size: cover;
+    background-position: 70% 45%;
+    display: flex;
+    flex-direction: column;
+    height: 13vw;
+    justify-content: center;
+    margin: 0 auto;
+    width: 25vw;
+  }
+  &__title {
+  }
+}
