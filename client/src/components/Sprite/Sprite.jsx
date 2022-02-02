@@ -5,7 +5,7 @@ function Sprite({ pokemonName }) {
   const [pokemonSprite, setPokemonSprite] = useState(null);
   useEffect(() => {
     getPokemonSprite();
-  }, []);
+  }, [pokemonName]);
 
   const getPokemonSprite = async () => {
     const { data } = await axios.get(

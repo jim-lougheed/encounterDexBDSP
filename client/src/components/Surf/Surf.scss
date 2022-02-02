@@ -1,0 +1,25 @@
+.surf-pokemon {
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    width: 80vw;
+  }
+  &__name {
+    font-family: "POKEMON GB";
+    font-size: 2rem;
+    margin: 1rem auto 0;
+  }
+  &__card {
+    background: url("../../assets/images/lightblue.jpg");
+    border-color: rgb(9, 7, 92);
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 20%;
+  }
+}
