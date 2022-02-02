@@ -8,12 +8,15 @@ function Surf({ pokemon }) {
   return (
     <>
       <h3>Surf</h3>
-      <div className="pokemon__container">
+      <div className="surf-pokemon__container">
         {pokemon &&
           pokemon.map((pokemon) => {
             return (
-              <div className="pokemon__card">
-                <p>{pokemon.pokemon.name}</p>
+              <div className="surf-pokemon__card">
+                <p className="surf-pokemon__name">
+                  {pokemon.pokemon.name[0].toUpperCase() +
+                    pokemon.pokemon.name.substr(1)}
+                </p>
                 <Sprite pokemonName={pokemon.pokemon.name} />
                 <EncounterDetails pokemon={pokemon} />
               </div>

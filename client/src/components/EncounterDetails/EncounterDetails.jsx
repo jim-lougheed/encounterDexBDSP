@@ -87,7 +87,7 @@ function EncounterDetails({ pokemon: { version_details } }) {
                   </p>
                   <section className="condition__level-chance-container">
                     <div className="condition__container">
-                      <p>Level</p>
+                      <p className="condition__title">Level</p>
                       <p className="condition__value">
                         {condition.max_level === condition.min_level
                           ? condition.max_level
@@ -95,7 +95,7 @@ function EncounterDetails({ pokemon: { version_details } }) {
                       </p>
                     </div>
                     <div className="condition__container">
-                      <p>Chance</p>
+                      <p className="condition__title">Chance</p>
                       <p className="condition__value">{condition.chance}%</p>
                     </div>
                   </section>
