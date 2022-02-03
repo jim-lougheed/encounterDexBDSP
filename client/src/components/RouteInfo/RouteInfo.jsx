@@ -3,6 +3,8 @@ import axios from "axios";
 
 import PokemonListing from "../PokemonListing/PokemonListing";
 import Selection from "../Selection/Selection";
+import Legend from "../Legend/Legend";
+import VersionButtons from "../VersionButtons/VersionButtons";
 
 import Piplup from "../../assets/images/piplup.png";
 import Chimchar from "../../assets/images/chimchar.png";
@@ -17,7 +19,7 @@ import Luxray from "../../assets/images/luxray-flip.png";
 
 import "./RouteInfo.scss";
 
-function RouteInfo({ route, routeName, setRoute, setRouteName }) {
+function RouteInfo({ route, routeName, setRoute, setRouteName, version }) {
   const [pokemon, setPokemon] = useState(null);
   useEffect(() => {
     getPokemon();
@@ -32,7 +34,7 @@ function RouteInfo({ route, routeName, setRoute, setRouteName }) {
     pokemon &&
     pokemon.filter((pokemon) => {
       return pokemon.version_details.some((detail) => {
-        return detail.version.name === "pearl";
+        return detail.version.name === version;
       });
     });
   console.log(route, routeName);
@@ -40,7 +42,8 @@ function RouteInfo({ route, routeName, setRoute, setRouteName }) {
   return (
     <>
       <div className="route__container">
-        <img className="banner-pokemon banner-pokemon--1" src={Turtwig} />
+        <VersionButtons />
+        {/* <img className="banner-pokemon banner-pokemon--1" src={Turtwig} />
         <img className="banner-pokemon banner-pokemon--2" src={Girafarig} />
         <img className="banner-pokemon banner-pokemon--3" src={Houndoom} />
         <img className="banner-pokemon banner-pokemon--4" src={Luxray} />
@@ -49,16 +52,20 @@ function RouteInfo({ route, routeName, setRoute, setRouteName }) {
         <img className="banner-pokemon banner-pokemon--7" src={Chimchar} />
         <img className="banner-pokemon banner-pokemon--8" src={Rhydon} />
         <img className="banner-pokemon banner-pokemon--9" src={Crobat} />
-        <img className="banner-pokemon banner-pokemon--10" src={Piplup} />
+        <img className="banner-pokemon banner-pokemon--10" src={Piplup} /> */}
         <div className="route__header">
           <h1 className="route__title">
             {routeName ? routeName : "Select an area"}
           </h1>
-          <Selection setRoute={setRoute} setRouteName={setRouteName} />
+          <Selection
+            setRoute={setRoute}
+            setRouteName={setRouteName}
+            version={version}
+          />
         </div>
+        <Legend />
       </div>
-
-      <PokemonListing pokemon={filteredPokemon} />
+      <PokemonListing pokemon={filteredPokemon} version={version} />
     </>
   );
 }

@@ -1,11 +1,14 @@
 .level-conditions-container {
   background-color: rgba(223, 80, 80, 0.466);
   border-radius: 10px;
+  margin-top: -1.5rem;
   padding: 0.5rem;
+  width: 90%;
 }
 
 .level {
   &__title {
+    font-size: 1.5rem;
     margin: 0;
     text-align: center;
   }
@@ -18,6 +21,7 @@
   &__header {
   }
   &__max-min {
+    font-size: 1rem;
     margin: 0;
   }
   &__value {
@@ -28,11 +32,12 @@
 
 .conditions {
   &__title {
+    font-size: 1.5rem;
+    margin: 0;
     text-align: center;
   }
   &__container {
-    // align-items: flex-end;
-    align-content: end;
+    // align-content: end;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -45,12 +50,13 @@
   background-color: white;
   border-radius: 10px;
   list-style: none;
-  margin: 0.25rem auto;
-  width: 8.5rem;
+  margin: 0.25rem;
+  width: 45%;
   &__container {
-    max-width: 49%;
+    // max-width: 49%;
   }
   &__icon {
+    margin: 0;
     text-align: center;
   }
   &__level-chance-container {
@@ -59,6 +65,8 @@
   }
   &__title {
     font-weight: bold;
+    font-size: 0.75rem;
+    margin: 0.5rem auto 0;
   }
   &__value {
     text-align: center;

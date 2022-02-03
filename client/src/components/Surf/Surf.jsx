@@ -4,7 +4,7 @@ import PixelBanner from "../PixelBanner/PixelBanner";
 
 import "./Surf.scss";
 
-function Surf({ pokemon }) {
+function Surf({ pokemon, version }) {
   console.log(pokemon);
   return (
     <>
@@ -21,7 +21,7 @@ function Surf({ pokemon }) {
                       pokemon.pokemon.name.substr(1)}
                   </p>
                   <Sprite pokemonName={pokemon.pokemon.name} />
-                  <EncounterDetails pokemon={pokemon} />
+                  <EncounterDetails pokemon={pokemon} version={version} />
                 </div>
               );
             })

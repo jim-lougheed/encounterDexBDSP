@@ -3,7 +3,7 @@ import EncounterDetails from "../EncounterDetails/EncounterDetails";
 
 import "./StandardWalk.scss";
 
-function StandardWalk({ pokemon }) {
+function StandardWalk({ pokemon, version }) {
   console.log(pokemon);
   return (
     <>
@@ -17,7 +17,7 @@ function StandardWalk({ pokemon }) {
                     pokemon.pokemon.name.substr(1)}
                 </h2>
                 <Sprite pokemonName={pokemon.pokemon.name} />
-                <EncounterDetails pokemon={pokemon} />
+                <EncounterDetails pokemon={pokemon} version={version} />
               </div>
             );
           })

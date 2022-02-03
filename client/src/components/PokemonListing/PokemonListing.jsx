@@ -4,15 +4,19 @@ import axios from "axios";
 import Walk from "../Walk/Walk";
 import Surf from "../Surf/Surf";
 
-function PokemonListing({ pokemon }) {
+function PokemonListing({ pokemon, version }) {
   const filterMethod = (pokemon, method) => {
     return pokemon.filter((p) => {
-      if (p.version_details[0].version.name === "pearl") {
+      if (p.version_details[0].version.name === version) {
         return p.version_details[0].encounter_details.some((detail) => {
           return detail.method.name === method;
         });
-      } else {
+      } else if (p.version_details[1].version.name === version) {
         return p.version_details[1].encounter_details.some((detail) => {
+          return detail.method.name === method;
+        });
+      } else if (p.version_details[2].version.name === version) {
+        return p.version_details[2].encounter_details.some((detail) => {
           return detail.method.name === method;
         });
       }
@@ -24,8 +28,8 @@ function PokemonListing({ pokemon }) {
 
   return (
     <>
-      <Walk pokemon={walkPokemon} />
-      <Surf pokemon={surfPokemon} />
+      <Walk pokemon={walkPokemon} version={version} />
+      <Surf pokemon={surfPokemon} version={version} />
     </>
   );
 }
