@@ -1,3 +1,5 @@
+@use "../../styles/fonts";
+
 .route {
   &__container {
     background-color: rgb(127, 172, 113);
@@ -22,6 +24,7 @@
     width: 25vw;
   }
   &__title {
+    font-family: "Bolt";
   }
 }
 

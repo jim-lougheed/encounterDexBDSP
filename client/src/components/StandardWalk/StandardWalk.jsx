@@ -8,7 +8,7 @@ function StandardWalk({ pokemon }) {
   return (
     <>
       <div className="walk-pokemon__container">
-        {pokemon &&
+        {pokemon && pokemon.length !== 0 ? (
           pokemon.map((pokemon) => {
             return (
               <div className="walk-pokemon__card">
@@ -20,7 +20,10 @@ function StandardWalk({ pokemon }) {
                 <EncounterDetails pokemon={pokemon} />
               </div>
             );
-          })}
+          })
+        ) : (
+          <h2>No Pokémon available by walking</h2>
+        )}
       </div>
     </>
   );

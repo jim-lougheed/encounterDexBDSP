@@ -1,3 +1,7 @@
+import "./Selection.scss";
+
+import Pokeball from "../../assets/images/pokeball.png";
+
 function Selection({ setRoute, setRouteName }) {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -7,8 +11,8 @@ function Selection({ setRoute, setRouteName }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <select name="location_area">
+      <form className="route__form" onSubmit={handleSubmit}>
+        <select className="route__select" name="location_area">
           <option value="canalave-city-area">Canalave City</option>
           <option value="eterna-city-area">Eterna City</option>
           <option value="pastoria-city-area">Pastoria City</option>
@@ -222,7 +226,15 @@ function Selection({ setRoute, setRouteName }) {
           <option value="celestic-town-area">Celestic Town</option>
           <option value="resort-area-area">Resort Area</option>
         </select>
-        <button type="submit">Submit</button>
+        <input
+          className="pokeball-button"
+          type="image"
+          src={Pokeball}
+          alt="pokeball submit button"
+        />
+        {/* <button type="submit" className="pokeball-button">
+          
+        </button> */}
       </form>
     </>
   );
