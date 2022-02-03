@@ -1,4 +1,6 @@
 import StandardWalk from "../StandardWalk/StandardWalk";
+import PixelBanner from "../PixelBanner/PixelBanner";
+import "./Walk.scss";
 
 function Walk({ pokemon }) {
   const filterCondition = (
@@ -56,8 +58,10 @@ function Walk({ pokemon }) {
   console.log(pokemon);
   return (
     <>
-      <h3>Walk</h3>
-      <StandardWalk pokemon={standardWalkPokemon} />
+      <div className="walk-container">
+        <PixelBanner banner="walk"></PixelBanner>
+        <StandardWalk pokemon={standardWalkPokemon} />
+      </div>
     </>
   );
 }

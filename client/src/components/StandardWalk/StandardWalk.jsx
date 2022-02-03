@@ -7,7 +7,6 @@ function StandardWalk({ pokemon }) {
   console.log(pokemon);
   return (
     <>
-      <h3>Standard</h3>
       <div className="walk-pokemon__container">
         {pokemon &&
           pokemon.map((pokemon) => {

@@ -1,0 +1,71 @@
+.route {
+  &__container {
+    background-color: rgb(127, 172, 113);
+    // background-image: url("../../assets/images/banner1.png");
+    // background-size: cover;
+    padding-bottom: 2rem;
+    position: relative;
+    width: 100vw;
+  }
+  &__header {
+    align-items: center;
+    background-image: url("../../assets/images/title-card.png");
+    background-size: cover;
+    background-position: 70% 45%;
+    border: 0.75rem solid black;
+    display: flex;
+    flex-direction: column;
+    height: 13vw;
+    justify-content: center;
+    margin: 0 auto;
+
+    width: 25vw;
+  }
+  &__title {
+  }
+}
+
+.banner-pokemon {
+  position: absolute;
+  width: 11vw;
+  &--1 {
+    left: -1vw;
+  }
+  &--2 {
+    top: 3vw;
+    left: 6vw;
+  }
+  &--3 {
+    left: 14vw;
+  }
+  &--4 {
+    top: 4vw;
+    left: 20.5vw;
+  }
+  &--5 {
+    top: 1vw;
+    left: 28vw;
+    width: 13vw;
+  }
+  &--6 {
+    top: 1vw;
+    right: 28vw;
+    width: 13vw;
+  }
+  &--7 {
+    right: 20.5vw;
+  }
+  &--8 {
+    top: 4vw;
+    right: 14vw;
+  }
+  &--9 {
+    top: -1vw;
+    right: 6vw;
+    width: 14vw;
+  }
+  &--10 {
+    top: 3vw;
+    right: -1vw;
+  }
+}
