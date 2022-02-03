@@ -12,7 +12,7 @@ function Surf({ pokemon }) {
         <PixelBanner banner="surf"></PixelBanner>
 
         <div className="surf-pokemon__container">
-          {pokemon &&
+          {pokemon && pokemon.length !== 0 ? (
             pokemon.map((pokemon) => {
               return (
                 <div className="surf-pokemon__card">
@@ -24,7 +24,10 @@ function Surf({ pokemon }) {
                   <EncounterDetails pokemon={pokemon} />
                 </div>
               );
-            })}
+            })
+          ) : (
+            <h2>No Pokémon available by surfing</h2>
+          )}
         </div>
       </div>
     </>

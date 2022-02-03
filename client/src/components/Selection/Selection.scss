@@ -1,0 +1,16 @@
+.route {
+  &__form {
+    align-items: center;
+    display: flex;
+  }
+  &__select {
+    border-radius: 10px;
+    width: 10rem;
+  }
+}
+
+.pokeball-button {
+  background-image: url("../../assets/images/pokeball.png");
+  padding-bottom: 10px;
+  width: 4rem;
+}
