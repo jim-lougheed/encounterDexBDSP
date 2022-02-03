@@ -1,8 +1,8 @@
 import "./EncounterDetails.scss";
 
-function EncounterDetails({ pokemon: { version_details } }) {
+function EncounterDetails({ pokemon: { version_details }, version }) {
   const [filteredEncounterDetails] = version_details.filter((v) => {
-    if (v.version.name === "pearl") {
+    if (v.version.name === version) {
       return v.encounter_details;
     }
   });
@@ -49,7 +49,7 @@ function EncounterDetails({ pokemon: { version_details } }) {
       } else if (condition.condition_values[0].name === "radar-on") {
         condition.condition_values[0].name = "RADAR";
       } else if (condition.condition_values[0].name === "radar-off") {
-        condition.condition_values[0].name = "🚫 RD";
+        condition.condition_values[0].name = "🚫 PR";
       } else if (condition.condition_values[0].name === "slot2-none") {
         condition.condition_values[0].name = "🚫 SL";
       }

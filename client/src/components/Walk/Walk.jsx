@@ -2,7 +2,7 @@ import StandardWalk from "../StandardWalk/StandardWalk";
 import PixelBanner from "../PixelBanner/PixelBanner";
 import "./Walk.scss";
 
-function Walk({ pokemon }) {
+function Walk({ pokemon, version }) {
   const filterCondition = (
     pokemon,
     condition1,
@@ -12,7 +12,7 @@ function Walk({ pokemon }) {
     condition5
   ) => {
     return pokemon.filter((p) => {
-      if (p.version_details[0].version.name === "pearl") {
+      if (p.version_details[0].version.name === version) {
         return p.version_details[0].encounter_details.some((detail) => {
           return detail.condition_values.some((value) => {
             return (
@@ -60,7 +60,7 @@ function Walk({ pokemon }) {
     <>
       <div className="walk-container">
         <PixelBanner banner="walk"></PixelBanner>
-        <StandardWalk pokemon={standardWalkPokemon} />
+        <StandardWalk pokemon={standardWalkPokemon} version={version} />
       </div>
     </>
   );

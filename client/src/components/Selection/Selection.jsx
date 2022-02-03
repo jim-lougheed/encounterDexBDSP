@@ -2,7 +2,7 @@ import "./Selection.scss";
 
 import Pokeball from "../../assets/images/pokeball.png";
 
-function Selection({ setRoute, setRouteName }) {
+function Selection({ setRoute, setRouteName, version }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setRoute(e.target.location_area.value);

@@ -9,6 +9,7 @@ import Logo from "./assets/logo/encounterDex.png";
 function App() {
   const [route, setRoute] = useState(null);
   const [routeName, setRouteName] = useState(null);
+  const [version, setVersion] = useState("diamond");
 
   return (
     <div className="App">
@@ -26,6 +27,7 @@ function App() {
         routeName={routeName}
         setRoute={setRoute}
         setRouteName={setRouteName}
+        version={version}
       />
     </div>
   );

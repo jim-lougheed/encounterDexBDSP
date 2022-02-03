@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import "./Sprite.scss";
+
 function Sprite({ pokemonName }) {
   const [pokemonSprite, setPokemonSprite] = useState(null);
   useEffect(() => {
@@ -14,7 +16,7 @@ function Sprite({ pokemonName }) {
     setPokemonSprite(data.sprites.front_default);
   };
 
-  return <img src={pokemonSprite}></img>;
+  return <img className="pokemon-sprite" src={pokemonSprite}></img>;
 }
 
 export default Sprite;

@@ -1,0 +1,112 @@
+@use "../../styles/fonts";
+
+.version-buttons {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30%;
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: 125px 125px 125px 125px;
+    column-gap: 20px;
+  }
+  &__version {
+    font-family: "Bolt";
+    margin-bottom: 0;
+  }
+  &__button {
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 0.5rem 1rem;
+    color: black;
+    font-weight: bold;
+    margin: 0.25rem;
+    padding: 0.25rem;
+    text-transform: uppercase;
+    width: 100%;
+    &--red {
+      background-color: rgba(255, 70, 70);
+      border-color: rgb(255, 23, 23);
+    }
+    &--blue {
+      background-color: rgb(144, 144, 248);
+      border-color: blue;
+    }
+    &--yellow {
+      background-color: rgb(255, 255, 123);
+      border-color: yellow;
+    }
+    &--gold {
+      background-color: rgba(248, 224, 86);
+      border-color: gold;
+    }
+    &--silver {
+      background-color: rgb(230, 228, 228);
+      border-color: silver;
+    }
+    &--crystal {
+      background-color: rgb(170, 166, 211);
+      border-color: rgb(137, 132, 179);
+    }
+    &--ruby {
+      background-color: rgb(185, 120, 120);
+      border-color: rgba(177, 1, 1);
+    }
+    &--sapphire {
+      background-color: rgb(167, 167, 233);
+      border-color: rgb(11, 11, 219);
+    }
+    &--emerald {
+      background-color: rgb(114, 214, 114);
+      border-color: green;
+    }
+    &--diamond {
+      background-color: rgba(192, 192, 192);
+      border-color: rgb(168, 161, 194);
+    }
+    &--pearl {
+      background-color: rgb(245, 175, 175);
+      border-color: rgb(236, 134, 134);
+    }
+    &--platinum {
+      background-color: rgb(247, 197, 151);
+      border-color: rgb(243, 167, 95);
+    }
+    &--black {
+      background-color: rgb(63, 63, 63);
+      border-color: black;
+      color: white;
+    }
+    &--white {
+      background-color: rgb(185, 179, 179);
+      border-color: white;
+    }
+    &--x {
+      background-color: rgb(160, 253, 238);
+      border-color: rgb(50, 248, 215);
+    }
+    &--y {
+      background-color: rgb(247, 199, 240);
+      border-color: rgb(236, 146, 224);
+    }
+    &--sun {
+      background-color: rgba(248, 224, 86);
+      border-color: gold;
+    }
+    &--moon {
+      background-color: rgb(170, 166, 211);
+      border-color: rgb(137, 132, 179);
+    }
+    &--sword {
+      background-color: rgba(23, 178, 240);
+      border-color: rgb(78, 199, 247);
+    }
+    &--shield {
+      background-color: rgb(250, 124, 172);
+      border-color: rgb(255, 0, 98);
+    }
+  }
+}

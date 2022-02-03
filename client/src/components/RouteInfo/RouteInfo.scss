@@ -5,6 +5,8 @@
     background-color: rgb(127, 172, 113);
     // background-image: url("../../assets/images/banner1.png");
     // background-size: cover;
+    display: flex;
+    justify-content: space-around;
     padding-bottom: 2rem;
     position: relative;
     width: 100vw;
@@ -19,8 +21,6 @@
     flex-direction: column;
     height: 13vw;
     justify-content: center;
-    margin: 0 auto;
-
     width: 25vw;
   }
   &__title {
