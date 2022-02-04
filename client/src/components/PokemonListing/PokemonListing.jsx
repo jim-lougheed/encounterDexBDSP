@@ -5,6 +5,7 @@ import Walk from "../Walk/Walk";
 import Surf from "../Surf/Surf";
 
 function PokemonListing({ pokemon, version }) {
+  console.log();
   const filterMethod = (pokemon, method) => {
     return pokemon.filter((p) => {
       if (p.version_details[0].version.name === version) {

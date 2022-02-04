@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./VersionButtons.scss";
 
 function VersionButtons() {
@@ -24,9 +26,12 @@ function VersionButtons() {
           <button className="version-buttons__button version-buttons__button--ruby">
             Ruby
           </button>
-          <button className="version-buttons__button version-buttons__button--diamond">
+          <Link
+            to="/diamond"
+            className="version-buttons__button version-buttons__button--diamond"
+          >
             Diamond
-          </button>
+          </Link>
           <button className="version-buttons__button version-buttons__button--blue">
             Blue
           </button>
@@ -36,9 +41,12 @@ function VersionButtons() {
           <button className="version-buttons__button version-buttons__button--sapphire">
             Sapphire
           </button>
-          <button className="version-buttons__button version-buttons__button--pearl">
+          <Link
+            to="/pearl"
+            className="version-buttons__button version-buttons__button--pearl"
+          >
             Pearl
-          </button>
+          </Link>
           <button className="version-buttons__button version-buttons__button--yellow">
             Yellow
           </button>
@@ -48,9 +56,12 @@ function VersionButtons() {
           <button className="version-buttons__button version-buttons__button--emerald">
             Emerald
           </button>
-          <button className="version-buttons__button version-buttons__button--platinum">
+          <Link
+            to="/platinum"
+            className="version-buttons__button version-buttons__button--platinum"
+          >
             Platinum
-          </button>
+          </Link>
           <p className="version-buttons__version">Generation 5</p>
           <p className="version-buttons__version">Generation 6</p>
           <p className="version-buttons__version">Generation 7</p>

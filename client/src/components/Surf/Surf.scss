@@ -15,10 +15,11 @@
   }
   &__name {
     font-family: "POKEMON GB";
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 1rem auto 0;
   }
   &__card {
+    align-items: center;
     background: url("../../assets/images/lightblue.jpg");
     background-size: cover;
     border-color: rgb(9, 7, 92);
@@ -28,6 +29,7 @@
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    width: 20%;
+    margin-bottom: 1rem;
+    width: 15%;
   }
 }

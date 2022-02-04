@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter, useParams } from "react-router-dom";
 import axios from "axios";
 
 import PokemonListing from "../PokemonListing/PokemonListing";
@@ -19,11 +20,18 @@ import Luxray from "../../assets/images/luxray-flip.png";
 
 import "./RouteInfo.scss";
 
-function RouteInfo({ route, routeName, setRoute, setRouteName, version }) {
+function RouteInfo() {
+  const params = useParams();
+  const [route, setRoute] = useState(null);
+  const [routeName, setRouteName] = useState(null);
+  const [version, setVersion] = useState(null);
+  console.log(params);
+
   const [pokemon, setPokemon] = useState(null);
   useEffect(() => {
     getPokemon();
-  }, [route]);
+    setVersion(params.version);
+  }, [route, version]);
 
   const getPokemon = async () => {
     const { data } = await axios.get(`http://localhost:8080/${route}`);
@@ -58,6 +66,7 @@ function RouteInfo({ route, routeName, setRoute, setRouteName, version }) {
             {routeName ? routeName : "Select an area"}
           </h1>
           <Selection
+            route={route}
             setRoute={setRoute}
             setRouteName={setRouteName}
             version={version}

@@ -1,16 +1,17 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Selection from "./components/Selection/Selection";
+import Home from "./components/Home/Home";
 import RouteInfo from "./components/RouteInfo/RouteInfo";
+import PokemonListing from "./components/PokemonListing/PokemonListing";
+import Footer from "./components/Footer/Footer";
+
 import "./App.scss";
 
 import Logo from "./assets/logo/encounterDex.png";
 
 function App() {
-  const [route, setRoute] = useState(null);
-  const [routeName, setRouteName] = useState(null);
-  const [version, setVersion] = useState("diamond");
-
   return (
     <div className="App">
       <header className="header__app">
@@ -22,13 +23,14 @@ function App() {
           ></img>
         </a>
       </header>
-      <RouteInfo
-        route={route}
-        routeName={routeName}
-        setRoute={setRoute}
-        setRouteName={setRouteName}
-        version={version}
-      />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:version" element={<RouteInfo />} />
+          {/* <Route path="/:version/:route" element={<RouteInfo />} /> */}
+        </Routes>
+      </BrowserRouter>
+      <Footer />
     </div>
   );
 }
