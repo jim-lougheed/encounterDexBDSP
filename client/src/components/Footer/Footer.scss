@@ -1,0 +1,9 @@
+.footer {
+  background-color: rgb(127, 172, 113);
+  font-weight: bold;
+  padding: 0.5rem;
+  &__text {
+    margin: 0 auto;
+    width: 10vw;
+  }
+}

@@ -1,18 +1,24 @@
+import { Link } from "react-router-dom";
+
 import "./Selection.scss";
 
 import Pokeball from "../../assets/images/pokeball.png";
 
-function Selection({ setRoute, setRouteName, version }) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setRoute(e.target.location_area.value);
-    setRouteName(e.target.location_area.selectedOptions[0].innerText);
+function Selection({ setRoute, setRouteName, route, version }) {
+  const handleRouteChange = (e) => {
+    setRoute(e.target.value);
+    setRouteName(e.target.selectedOptions[0].innerText);
   };
 
   return (
     <>
-      <form className="route__form" onSubmit={handleSubmit}>
-        <select className="route__select" name="location_area">
+      <form className="route__form">
+        <select
+          className="route__select"
+          name="location_area"
+          onChange={handleRouteChange}
+        >
+          <option value="">Select a route...</option>
           <option value="canalave-city-area">Canalave City</option>
           <option value="eterna-city-area">Eterna City</option>
           <option value="pastoria-city-area">Pastoria City</option>
@@ -226,15 +232,13 @@ function Selection({ setRoute, setRouteName, version }) {
           <option value="celestic-town-area">Celestic Town</option>
           <option value="resort-area-area">Resort Area</option>
         </select>
-        <input
-          className="pokeball-button"
-          type="image"
-          src={Pokeball}
-          alt="pokeball submit button"
-        />
-        {/* <button type="submit" className="pokeball-button">
-          
-        </button> */}
+        {/* <Link to={route ? `/${version}/${route}` : "/"}>
+          <img
+            className="pokeball-button"
+            src={Pokeball}
+            alt="pokeball submit button"
+          />
+        </Link> */}
       </form>
     </>
   );
