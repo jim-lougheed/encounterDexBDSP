@@ -5,20 +5,28 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 999px) {
+      width: 50%;
+    }
     width: 30%;
   }
   &__title {
     font-family: "Bolt";
+    text-align: center;
   }
   &__grid {
     display: grid;
-    grid-template-columns: 50px 200px 50px 200px;
-    grid-column-gap: 0.75rem;
-    grid-row-gap: 0.25rem;
+    grid-template-columns: 5vw 10vw 5vw 10vw;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.75rem;
     grid-template-rows: auto auto;
+    @media screen and (max-width: 999px) {
+      grid-template-columns: 5vw 20vw 5vw 20vw;
+      grid-row-gap: 0.4rem;
+    }
   }
   &__value {
-    // font-size: 0.85rem;
+    font-size: 0.85rem;
     margin: 0;
     &--symbol {
       text-align: center;

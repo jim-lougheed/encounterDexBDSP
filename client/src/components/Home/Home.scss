@@ -1,0 +1,37 @@
+@use "../../styles/fonts";
+
+.home {
+  &__container {
+    background-color: rgb(127, 172, 113);
+
+    height: 75vh;
+  }
+}
+
+.banner {
+  &__title {
+    font-family: "Bolt";
+    font-size: 3rem;
+    margin: 0;
+    padding: 2rem;
+    text-align: center;
+  }
+  &__subtitle {
+    font-family: "Bolt";
+    font-size: 2rem;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+  }
+  &__container {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.banner-pokemon {
+  width: 20%;
+  &__container {
+    width: 30%;
+  }
+}

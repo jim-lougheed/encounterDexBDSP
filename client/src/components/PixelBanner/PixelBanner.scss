@@ -21,6 +21,9 @@
     color: white;
     font-size: 2rem;
     text-align: center;
+    @media screen and (max-width: 999px) {
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -33,7 +36,7 @@
     background-color: white;
     display: flex;
     flex-wrap: wrap;
-    max-height: 5rem;
+    max-height: 4rem;
     overflow: hidden;
     position: relative;
   }
