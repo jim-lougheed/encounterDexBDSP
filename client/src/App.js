@@ -26,7 +26,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:version" element={<RouteInfo />} />
+          <Route path="/:version/*" element={<RouteInfo />}>
+            {/* <Route path=":route" element={<PokemonListing />} /> */}
+          </Route>
           {/* <Route path="/:version/:route" element={<RouteInfo />} /> */}
         </Routes>
       </BrowserRouter>

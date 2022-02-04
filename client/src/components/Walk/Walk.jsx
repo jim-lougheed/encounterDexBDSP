@@ -2,65 +2,47 @@ import StandardWalk from "../StandardWalk/StandardWalk";
 import PixelBanner from "../PixelBanner/PixelBanner";
 import "./Walk.scss";
 
-function Walk({ pokemon, version }) {
-  const filterCondition = (
-    pokemon,
-    condition1,
-    condition2,
-    condition3,
-    condition4,
-    condition5
-  ) => {
-    return pokemon.filter((p) => {
-      if (p.version_details[0].version.name === version) {
-        return p.version_details[0].encounter_details.some((detail) => {
-          return detail.condition_values.some((value) => {
-            return (
-              value.name !== "radar-on" &&
-              value.name !== "swarm-yes" &&
-              value.name !== "slot2-ruby" &&
-              value.name !== "slot2-sapphire" &&
-              value.name !== "slot2-firered" &&
-              value.name !== "slot2-emerald" &&
-              value.name !== "slot2-leafgreen"
-            );
-          });
-        });
-      } else {
-        return p.version_details[1].encounter_details.some((detail) => {
-          return detail.condition_values.some((value) => {
-            return (
-              value.name !== "radar-on" &&
-              value.name !== "swarm-yes" &&
-              value.name !== "slot2-ruby" &&
-              value.name !== "slot2-sapphire" &&
-              value.name !== "slot2-firered" &&
-              value.name !== "slot2-emerald" &&
-              value.name !== "slot2-leafgreen"
-            );
-          });
-        });
-      }
+function Walk({ pokemon }) {
+  const normalConditions = (pokemon) => {
+    return pokemon.filter((pokemon) => {
+      return pokemon.versionDetails[0].encounter_details.some((detail) => {
+        return (
+          detail.condition_values[0]?.name !== "radar-on" &&
+          detail.condition_values[0]?.name !== "swarm-yes" &&
+          detail.condition_values[0]?.name !== "slot2-ruby" &&
+          detail.condition_values[0]?.name !== "slot2-sapphire" &&
+          detail.condition_values[0]?.name !== "slot2-firered" &&
+          detail.condition_values[0]?.name !== "slot2-emerald" &&
+          detail.condition_values[0]?.name !== "slot2-leafgreen"
+        );
+      });
+    });
+  };
+  const swarmCondition = (pokemon) => {
+    return pokemon.filter((pokemon) => {
+      return pokemon.versionDetails[0].encounter_details.some((detail) => {
+        return detail.condition_values[0]?.name === "swarm-yes";
+      });
+    });
+  };
+  const radarCondition = (pokemon) => {
+    return pokemon.filter((pokemon) => {
+      return pokemon.versionDetails[0].encounter_details.some((detail) => {
+        return detail.condition_values[0]?.name === "radar-on";
+      });
     });
   };
 
-  const standardWalkPokemon =
-    pokemon &&
-    filterCondition(
-      pokemon,
-      "swarm-no",
-      "radar-off",
-      "time-morning",
-      "time-day",
-      "time-night"
-    );
+  pokemon && console.log(normalConditions(pokemon), swarmCondition(pokemon));
+  const standardWalkPokemon = pokemon && normalConditions(pokemon);
+  const swarmPokemon = pokemon && swarmCondition(pokemon);
+  const radarPokemon = pokemon && radarCondition(pokemon);
 
-  console.log(pokemon);
   return (
     <>
       <div className="walk-container">
         <PixelBanner banner="walk"></PixelBanner>
-        <StandardWalk pokemon={standardWalkPokemon} version={version} />
+        <StandardWalk pokemon={standardWalkPokemon} />
       </div>
     </>
   );

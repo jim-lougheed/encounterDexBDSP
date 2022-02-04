@@ -1,26 +1,16 @@
 import "./EncounterDetails.scss";
 
-function EncounterDetails({ pokemon: { version_details }, version }) {
-  const [filteredEncounterDetails] = version_details.filter((v) => {
-    if (v.version.name === version) {
-      return v.encounter_details;
-    }
-  });
+function EncounterDetails({ pokemon: { versionDetails } }) {
+  console.log(versionDetails);
 
-  const maxLevel = filteredEncounterDetails.encounter_details.reduce(
-    (acc, detail) => {
-      return detail.max_level > acc ? detail.max_level : acc;
-    },
-    0
-  );
-  const minLevel = filteredEncounterDetails.encounter_details.reduce(
-    (acc, detail) => {
-      return detail.min_level < acc ? detail.min_level : acc;
-    },
-    100
-  );
+  const maxLevel = versionDetails[0].encounter_details.reduce((acc, detail) => {
+    return detail.max_level > acc ? detail.max_level : acc;
+  }, 0);
+  const minLevel = versionDetails[0].encounter_details.reduce((acc, detail) => {
+    return detail.min_level < acc ? detail.min_level : acc;
+  }, 100);
 
-  const conditions = filteredEncounterDetails.encounter_details
+  const conditions = versionDetails[0].encounter_details
     .flatMap((detail) => {
       return detail;
     })

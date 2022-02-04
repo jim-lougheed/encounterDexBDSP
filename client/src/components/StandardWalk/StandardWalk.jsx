@@ -3,7 +3,7 @@ import EncounterDetails from "../EncounterDetails/EncounterDetails";
 
 import "./StandardWalk.scss";
 
-function StandardWalk({ pokemon, version }) {
+function StandardWalk({ pokemon }) {
   console.log(pokemon);
   return (
     <>
@@ -13,11 +13,10 @@ function StandardWalk({ pokemon, version }) {
             return (
               <div className="walk-pokemon__card">
                 <h2 className="walk-pokemon__name">
-                  {pokemon.pokemon.name[0].toUpperCase() +
-                    pokemon.pokemon.name.substr(1)}
+                  {pokemon.name[0].toUpperCase() + pokemon.name.substr(1)}
                 </h2>
-                <Sprite pokemonName={pokemon.pokemon.name} />
-                <EncounterDetails pokemon={pokemon} version={version} />
+                <Sprite pokemonName={pokemon.name} />
+                <EncounterDetails pokemon={pokemon} />
               </div>
             );
           })

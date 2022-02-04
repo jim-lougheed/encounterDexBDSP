@@ -1,36 +1,74 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import Walk from "../Walk/Walk";
 import Surf from "../Surf/Surf";
 
-function PokemonListing({ pokemon, version }) {
-  console.log();
-  const filterMethod = (pokemon, method) => {
-    return pokemon.filter((p) => {
-      if (p.version_details[0].version.name === version) {
-        return p.version_details[0].encounter_details.some((detail) => {
-          return detail.method.name === method;
+function PokemonListing({ version, route, setRoute }) {
+  const params = useParams();
+
+  const [pokemon, setPokemon] = useState(null);
+
+  useEffect(() => {
+    setRoute(params.location);
+    getPokemon();
+  }, [route]);
+
+  const getPokemon = async () => {
+    console.log("test");
+    const {
+      data: { pokemon_encounters },
+    } = await axios.get(`http://localhost:8080/${route}`);
+    const filteredPokemon = filterByVersion(pokemon_encounters);
+    setPokemon(filteredPokemon);
+  };
+
+  const filterByVersion = (pokemon) => {
+    const filtered = pokemon
+      .filter((pokemon) => {
+        return pokemon.version_details.some((details) => {
+          return details.version.name === version;
         });
-      } else if (p.version_details[1].version.name === version) {
-        return p.version_details[1].encounter_details.some((detail) => {
-          return detail.method.name === method;
-        });
-      } else if (p.version_details[2].version.name === version) {
-        return p.version_details[2].encounter_details.some((detail) => {
-          return detail.method.name === method;
-        });
-      }
+      })
+      .map((pokemon) => {
+        let pokemonDetails = {};
+        pokemonDetails.name = pokemon.pokemon.name;
+        pokemonDetails.versionDetails = pokemon.version_details.filter(
+          (detail) => {
+            return detail.version.name === version;
+          }
+        );
+        return pokemonDetails;
+      });
+    return filtered;
+  };
+
+  pokemon && console.log(pokemon);
+
+  const filterByMethod = (pokemon, method) => {
+    return pokemon.filter((pokemon) => {
+      return pokemon.versionDetails[0].encounter_details.some((details) => {
+        return details.method.name === method;
+      });
     });
   };
 
-  const walkPokemon = pokemon && filterMethod(pokemon, "walk");
-  const surfPokemon = pokemon && filterMethod(pokemon, "surf");
+  const walkPokemon = pokemon && filterByMethod(pokemon, "walk");
+  const surfPokemon = pokemon && filterByMethod(pokemon, "surf");
+  const oldRodPokemon = pokemon && filterByMethod(pokemon, "old-rod");
+  const goodRodPokemon = pokemon && filterByMethod(pokemon, "good-rod");
+  const superRodPokemon = pokemon && filterByMethod(pokemon, "super-rod");
 
   return (
     <>
-      <Walk pokemon={walkPokemon} version={version} />
-      <Surf pokemon={surfPokemon} version={version} />
+      <Walk pokemon={walkPokemon} />
+      <Surf pokemon={surfPokemon} />
+      {/* <Fishing
+        oldRodPokemon={oldRodPokemon}
+        goodRodPokemon={goodRodPokemon}
+        superRodPokemon={superRodPokemon}
+      /> */}
     </>
   );
 }

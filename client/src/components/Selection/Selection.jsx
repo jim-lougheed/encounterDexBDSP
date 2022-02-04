@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./Selection.scss";
 
 import Pokeball from "../../assets/images/pokeball.png";
 
-function Selection({ setRoute, setRouteName, route, version }) {
+function Selection({ setRoute, setRouteName, version }) {
+  const navigate = useNavigate();
   const handleRouteChange = (e) => {
+    console.log(e);
+    navigate(e.target.value);
     setRoute(e.target.value);
     setRouteName(e.target.selectedOptions[0].innerText);
   };
