@@ -10,10 +10,10 @@ function VersionButtons() {
     <>
       <div className="version-buttons__container">
         <div className="version-buttons__grid">
-          <p className="version-buttons__version">Generation 1</p>
-          <p className="version-buttons__version">Generation 2</p>
-          <p className="version-buttons__version">Generation 3</p>
-          <p className="version-buttons__version">Generation 4</p>
+          <p className="version-buttons__version">Gen 1</p>
+          <p className="version-buttons__version">Gen 2</p>
+          <p className="version-buttons__version">Gen 3</p>
+          <p className="version-buttons__version">Gen 4</p>
           <button
             onClick={test}
             className="version-buttons__button version-buttons__button--red"
@@ -62,10 +62,10 @@ function VersionButtons() {
           >
             Platinum
           </Link>
-          <p className="version-buttons__version">Generation 5</p>
-          <p className="version-buttons__version">Generation 6</p>
-          <p className="version-buttons__version">Generation 7</p>
-          <p className="version-buttons__version">Generation 8</p>
+          <p className="version-buttons__version">Gen 5</p>
+          <p className="version-buttons__version">Gen 6</p>
+          <p className="version-buttons__version">Gen 7</p>
+          <p className="version-buttons__version">Gen 8</p>
           <button className="version-buttons__button version-buttons__button--black">
             Black
           </button>

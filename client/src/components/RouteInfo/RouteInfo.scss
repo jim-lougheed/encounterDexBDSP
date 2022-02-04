@@ -3,15 +3,13 @@
 .route {
   &__container {
     background-color: rgb(127, 172, 113);
-    // background-image: url("../../assets/images/banner1.png");
-    // background-size: cover;
     display: flex;
     justify-content: space-around;
     padding-bottom: 2rem;
     position: relative;
-    width: 100vw;
   }
   &__header {
+    align-self: center;
     align-items: center;
     background-image: url("../../assets/images/title-card.png");
     background-size: cover;
@@ -19,9 +17,29 @@
     border: 0.75rem solid black;
     display: flex;
     flex-direction: column;
-    height: 13vw;
     justify-content: center;
-    width: 25vw;
+    @media screen and (max-width: 999px) {
+      width: 70vw;
+    }
+    @media screen and (min-width: 1000px) {
+      height: 20vw;
+      min-height: 200px;
+      width: 30vw;
+    }
+    &--mobile-tablet {
+      @media screen and (min-width: 1000px) {
+        display: none;
+      }
+      @media screen and (max-width: 999px) {
+        margin: 0 auto;
+        height: 40vw;
+      }
+    }
+    &--desktop {
+      @media screen and (max-width: 999px) {
+        display: none;
+      }
+    }
   }
   &__title {
     font-family: "Bolt";
@@ -30,47 +48,7 @@
   }
 }
 
-.banner-pokemon {
-  position: absolute;
-  width: 11vw;
-  &--1 {
-    left: -1vw;
-  }
-  &--2 {
-    top: 3vw;
-    left: 6vw;
-  }
-  &--3 {
-    left: 14vw;
-  }
-  &--4 {
-    top: 4vw;
-    left: 20.5vw;
-  }
-  &--5 {
-    top: 1vw;
-    left: 28vw;
-    width: 13vw;
-  }
-  &--6 {
-    top: 1vw;
-    right: 28vw;
-    width: 13vw;
-  }
-  &--7 {
-    right: 20.5vw;
-  }
-  &--8 {
-    top: 4vw;
-    right: 14vw;
-  }
-  &--9 {
-    top: -1vw;
-    right: 6vw;
-    width: 14vw;
-  }
-  &--10 {
-    top: 3vw;
-    right: -1vw;
-  }
+.hidden-background {
+  background-color: rgb(127, 172, 113);
+  padding-bottom: 2rem;
 }
