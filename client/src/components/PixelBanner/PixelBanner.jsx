@@ -1,3 +1,8 @@
+import Sprite1 from "../../assets/sprites/lucas-walk-1-removebg-preview.png";
+import Sprite2 from "../../assets/sprites/lucas-walk-2-removebg-preview.png";
+import Sprite3 from "../../assets/sprites/lucas-walk-3-removebg-preview.png";
+// import SpriteSheet from "../../assets/sprits/lucas-walk-sheet.png";
+
 import "./PixelBanner.scss";
 
 function PixelBanner({ banner }) {
@@ -11,9 +16,6 @@ function PixelBanner({ banner }) {
   return (
     <>
       <div className="pixel__container">
-        <div className={`method__header method__header--${banner}`}>
-          <h3 className="method__title">{banner.toUpperCase()}</h3>
-        </div>
         <div className={`pixel pixel--${banner}`}></div>
         <div className={`pixel pixel--${banner}`}></div>
         <div className={`pixel pixel--${banner}`}></div>
