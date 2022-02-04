@@ -4,7 +4,7 @@ import PixelBanner from "../PixelBanner/PixelBanner";
 
 import "./Surf.scss";
 
-function Surf({ pokemon, version }) {
+function Surf({ pokemon }) {
   console.log(pokemon);
   return (
     <>
@@ -17,11 +17,10 @@ function Surf({ pokemon, version }) {
               return (
                 <div className="surf-pokemon__card">
                   <p className="surf-pokemon__name">
-                    {pokemon.pokemon.name[0].toUpperCase() +
-                      pokemon.pokemon.name.substr(1)}
+                    {pokemon.name[0].toUpperCase() + pokemon.name.substr(1)}
                   </p>
-                  <Sprite pokemonName={pokemon.pokemon.name} />
-                  <EncounterDetails pokemon={pokemon} version={version} />
+                  <Sprite pokemonName={pokemon.name} />
+                  <EncounterDetails pokemon={pokemon} />
                 </div>
               );
             })

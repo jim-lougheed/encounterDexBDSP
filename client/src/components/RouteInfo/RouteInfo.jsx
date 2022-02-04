@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, useParams } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import axios from "axios";
 
 import PokemonListing from "../PokemonListing/PokemonListing";
@@ -11,36 +11,20 @@ import "./RouteInfo.scss";
 
 function RouteInfo() {
   const params = useParams();
+
+  const [version, setVersion] = useState(null);
   const [route, setRoute] = useState(null);
   const [routeName, setRouteName] = useState(null);
-  const [version, setVersion] = useState(null);
-  console.log(params);
 
-  const [pokemon, setPokemon] = useState(null);
   useEffect(() => {
-    getPokemon();
     setVersion(params.version);
-  }, [route, version]);
-
-  const getPokemon = async () => {
-    const { data } = await axios.get(`http://localhost:8080/${route}`);
-    setPokemon(data.pokemon_encounters);
-  };
-
-  const filteredPokemon =
-    pokemon &&
-    pokemon.filter((pokemon) => {
-      return pokemon.version_details.some((detail) => {
-        return detail.version.name === version;
-      });
-    });
-  console.log(route, routeName);
+  }, [params]);
+  console.log(version, route, routeName, params);
 
   return (
     <>
       <div className="route__container">
         <VersionButtons />
-
         <div className="route__header route__header--desktop">
           <h1 className="route__title">
             {routeName ? routeName : "Select an area"}
@@ -67,7 +51,19 @@ function RouteInfo() {
           />
         </div>
       </div>
-      <PokemonListing pokemon={filteredPokemon} version={version} />
+      <Routes>
+        <Route
+          path=":location"
+          element={
+            <PokemonListing
+              route={route}
+              setRoute={setRoute}
+              version={version}
+            />
+          }
+        />
+      </Routes>
+      {/* <PokemonListing pokemon={filteredPokemon} version={version} /> */}
     </>
   );
 }
