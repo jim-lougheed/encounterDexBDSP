@@ -1,0 +1,30 @@
+.fishing-pokemon {
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    margin: 4rem auto 0;
+    padding-bottom: 4rem;
+    width: 90vw;
+  }
+  &__name {
+    font-family: "POKEMON GB";
+    font-size: 1.5rem;
+    margin: 1rem auto 0;
+  }
+  &__card {
+    align-items: center;
+    background: url("../../assets/images/lightblue.jpg");
+    background-size: cover;
+    border-color: rgb(9, 7, 92);
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    min-width: 200px;
+    width: 15%;
+  }
+}

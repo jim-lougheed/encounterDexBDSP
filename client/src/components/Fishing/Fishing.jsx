@@ -1,8 +1,9 @@
 import PixelBanner from "../PixelBanner/PixelBanner";
+import OldRod from "../OldRod/OldRod";
 
 import "./Fishing.scss";
 
-function Fishing() {
+function Fishing({ oldRodPokemon, goodRodPokemon, superRodPokemon }) {
   return (
     <>
       <div className="fishing-container">
@@ -14,7 +15,9 @@ function Fishing() {
           </div>
           <div className="sprite__fishing"></div>
         </div>
-        {/* <StandardWalk pokemon={standardWalkPokemon} /> */}
+        <OldRod pokemon={oldRodPokemon} />
+        {/* <GoodRod pokemon={goodRodPokemon} />
+        <SuperRod pokemon={superRodPokemon} /> */}
       </div>
     </>
   );
