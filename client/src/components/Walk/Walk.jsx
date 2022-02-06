@@ -1,5 +1,14 @@
-import StandardWalk from "../StandardWalk/StandardWalk";
+import { useState } from "react";
+
 import PixelBanner from "../PixelBanner/PixelBanner";
+import StandardWalk from "../StandardWalk/StandardWalk";
+import PokeRadarWalk from "../PokeRadarWalk/PokeRadarWalk";
+import SwarmWalk from "../SwarmWalk/SwarmWalk";
+
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+
 import "./Walk.scss";
 
 function Walk({ pokemon }) {
@@ -38,6 +47,15 @@ function Walk({ pokemon }) {
   const swarmPokemon = pokemon && swarmCondition(pokemon);
   const radarPokemon = pokemon && radarCondition(pokemon);
 
+  const [displayedTab, setDisplayedTab] = useState(
+    <StandardWalk pokemon={standardWalkPokemon} />
+  );
+
+  const handleTab = (e, displayTab) => {
+    e.preventDefault();
+    setDisplayedTab(displayTab);
+  };
+
   return (
     <>
       <div className="walk-container">
@@ -49,7 +67,27 @@ function Walk({ pokemon }) {
           </div>
           <div className="sprite__walk"></div>
         </div>
-        <StandardWalk pokemon={standardWalkPokemon} />
+        <Box sx={{ width: "100%" }}>
+          <Tabs
+            value={<StandardWalk pokemon={standardWalkPokemon} />}
+            onChange={handleTab}
+            textColor="secondary"
+            indicatorColor="secondary"
+            aria-label="secondary tabs example"
+          >
+            <Tab
+              value={<StandardWalk pokemon={standardWalkPokemon} />}
+              label="Regular"
+            />
+            <Tab value={<SwarmWalk pokemon={swarmPokemon} />} label="Swarm" />
+            <Tab
+              value={<PokeRadarWalk pokemon={radarPokemon} />}
+              label="PokeRadar"
+            />
+          </Tabs>
+        </Box>
+        {displayedTab}
+        {/* <StandardWalk pokemon={standardWalkPokemon} /> */}
       </div>
     </>
   );
