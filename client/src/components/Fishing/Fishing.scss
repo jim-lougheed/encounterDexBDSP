@@ -1,19 +1,19 @@
-.walk-container {
+.fishing-container {
   background: url("../../assets/images/walk-image1.png");
   position: relative;
 }
 
-.sprite__walk {
+.sprite__fishing {
   height: 60px;
-  width: 50px;
-  background: url("../../assets/sprites/lucas-walk-sheet-2-removebg-preview.png")
+  width: 60px;
+  background: url("../../assets/sprites/lucas-fish-sheet-removebg-preview.png")
     0px 0px;
-  animation: play-walk 0.5s steps(3) infinite;
+  animation: play-fish 1.25s steps(4) infinite;
   z-index: 2;
 }
-@keyframes play-walk {
-  100% {
-    background-position: 208px 0;
+@keyframes play-fish {
+  0% {
+    background-position: 278px 0;
   }
 }
 
@@ -36,6 +36,9 @@
       background-color: rgb(79, 192, 79);
     }
     &--surf {
+      background-color: rgb(134, 134, 243);
+    }
+    &--fishing {
       background-color: rgb(134, 134, 243);
     }
   }

@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Walk from "../Walk/Walk";
 import Surf from "../Surf/Surf";
+import Fishing from "../Fishing/Fishing";
 
 function PokemonListing({ version, route, setRoute }) {
   const params = useParams();
@@ -64,11 +65,11 @@ function PokemonListing({ version, route, setRoute }) {
     <>
       <Walk pokemon={walkPokemon} />
       <Surf pokemon={surfPokemon} />
-      {/* <Fishing
+      <Fishing
         oldRodPokemon={oldRodPokemon}
         goodRodPokemon={goodRodPokemon}
         superRodPokemon={superRodPokemon}
-      /> */}
+      />
     </>
   );
 }
