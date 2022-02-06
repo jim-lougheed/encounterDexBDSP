@@ -43,11 +43,11 @@ function Walk({ pokemon }) {
       <div className="walk-container">
         <PixelBanner banner="walk"></PixelBanner>
         <div className="method__banner">
-          <div id="sprite"></div>
+          <div className="sprite__walk"></div>
           <div className="method__header method__header--walk">
-            <h3 className="method__title">Walk</h3>
+            <h3 className="method__title">Walking</h3>
           </div>
-          <div id="sprite"></div>
+          <div className="sprite__walk"></div>
         </div>
         <StandardWalk pokemon={standardWalkPokemon} />
       </div>

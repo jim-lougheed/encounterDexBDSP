@@ -10,7 +10,13 @@ function Surf({ pokemon }) {
     <>
       <div className="surf-container">
         <PixelBanner banner="surf"></PixelBanner>
-
+        <div className="method__banner">
+          <div className="sprite__surf"></div>
+          <div className="method__header method__header--surf">
+            <h3 className="method__title">Surfing</h3>
+          </div>
+          <div className="sprite__surf"></div>
+        </div>
         <div className="surf-pokemon__container">
           {pokemon && pokemon.length !== 0 ? (
             pokemon.map((pokemon) => {
