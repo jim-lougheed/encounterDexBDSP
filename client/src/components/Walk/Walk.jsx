@@ -12,8 +12,6 @@ import Box from "@mui/material/Box";
 import "./Walk.scss";
 
 function Walk({ standardWalkPokemon, swarmPokemon, radarPokemon }) {
-  // useEffect(() => {});
-
   const [displayedTab, setDisplayedTab] = useState(0);
   console.log(displayedTab);
 
@@ -34,23 +32,60 @@ function Walk({ standardWalkPokemon, swarmPokemon, radarPokemon }) {
           </div>
           <div className="sprite__walk"></div>
         </div>
-        <Box sx={{ width: "100%" }}>
+        <Box
+          sx={{
+            width: "fit-content",
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            margin: "0 auto",
+          }}
+        >
           <Tabs
             value={displayedTab}
             onChange={handleTab}
-            textColor="secondary"
-            indicatorColor="secondary"
-            aria-label="secondary tabs example"
+            textColor="inherit"
+            aria-label="method tabs"
+            TabIndicatorProps={{
+              sx: {
+                bgcolor: "red",
+                height: "5px",
+              },
+            }}
           >
-            <Tab value={0} label="Regular" />
-            <Tab value={1} label="Swarm" />
-            <Tab value={2} label="PokeRadar" />
+            <Tab
+              value={0}
+              label="Standard walk"
+              sx={{
+                color: "white",
+                fontSize: "1rem",
+                padding: "0 2rem",
+                fontWeight: "bold",
+              }}
+            />
+            <Tab
+              value={1}
+              label="Swarm"
+              sx={{
+                color: "white",
+                fontSize: "1rem",
+                padding: "0 2rem",
+                fontWeight: "bold",
+              }}
+            />
+            <Tab
+              value={2}
+              label="PokeRadar"
+              sx={{
+                color: "white",
+                fontSize: "1rem",
+                padding: "0 2rem",
+                fontWeight: "bold",
+              }}
+            />
           </Tabs>
         </Box>
         {displayedTab === 0 && <StandardWalk pokemon={standardWalkPokemon} />}
         {displayedTab === 1 && <SwarmWalk pokemon={swarmPokemon} />}
         {displayedTab === 2 && <PokeRadarWalk pokemon={radarPokemon} />}
-        {/* <StandardWalk pokemon={standardWalkPokemon} /> */}
       </div>
     </>
   );

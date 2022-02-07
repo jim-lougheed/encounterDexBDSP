@@ -12,7 +12,7 @@ import Box from "@mui/material/Box";
 import "./Fishing.scss";
 
 function Fishing({ oldRodPokemon, goodRodPokemon, superRodPokemon }) {
-  const [displayedTab, setDisplayedTab] = useState(null);
+  const [displayedTab, setDisplayedTab] = useState(0);
 
   const handleTab = (e, displayTab) => {
     e.preventDefault();
@@ -30,26 +30,62 @@ function Fishing({ oldRodPokemon, goodRodPokemon, superRodPokemon }) {
           </div>
           <div className="sprite__fishing"></div>
         </div>
-        <Box sx={{ width: "100%" }}>
+        <Box
+          sx={{
+            width: "fit-content",
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            margin: "0 auto",
+          }}
+        >
           <Tabs
             value={displayedTab}
             onChange={handleTab}
-            textColor="secondary"
-            indicatorColor="secondary"
-            aria-label="secondary tabs example"
+            textColor="inherit"
+            aria-label="method tabs"
+            TabIndicatorProps={{
+              sx: {
+                bgcolor: "red",
+                height: "5px",
+              },
+            }}
           >
-            <Tab value={<OldRod pokemon={oldRodPokemon} />} label="Old Rod" />
             <Tab
-              value={<GoodRod pokemon={goodRodPokemon} />}
-              label="Good Rod"
+              value={0}
+              label="Old Rod"
+              sx={{
+                color: "white",
+                fontSize: "1rem",
+                padding: "0 2rem",
+                fontWeight: "bold",
+              }}
             />
             <Tab
-              value={<SuperRod pokemon={superRodPokemon} />}
+              className="fishing-tab"
+              value={1}
+              label="Good Rod"
+              sx={{
+                color: "white",
+                fontSize: "1rem",
+                padding: "0 2rem",
+                fontWeight: "bold",
+              }}
+            />
+            <Tab
+              className="fishing-tab"
+              value={2}
               label="Super Rod"
+              sx={{
+                color: "white",
+                fontSize: "1rem",
+                padding: "0 2rem",
+                fontWeight: "bold",
+              }}
             />
           </Tabs>
         </Box>
-        {displayedTab}
+        {displayedTab === 0 && <OldRod pokemon={oldRodPokemon} />}
+        {displayedTab === 1 && <GoodRod pokemon={goodRodPokemon} />}
+        {displayedTab === 2 && <SuperRod pokemon={superRodPokemon} />}
       </div>
     </>
   );
