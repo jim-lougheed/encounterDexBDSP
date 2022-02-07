@@ -1,42 +1,25 @@
-import StandardWalk from "../StandardWalk/StandardWalk";
+import { useState, useEffect } from "react";
+
 import PixelBanner from "../PixelBanner/PixelBanner";
+import StandardWalk from "../StandardWalk/StandardWalk";
+import PokeRadarWalk from "../PokeRadarWalk/PokeRadarWalk";
+import SwarmWalk from "../SwarmWalk/SwarmWalk";
+
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+
 import "./Walk.scss";
 
-function Walk({ pokemon }) {
-  const normalConditions = (pokemon) => {
-    return pokemon.filter((pokemon) => {
-      return pokemon.versionDetails[0].encounter_details.some((detail) => {
-        return (
-          detail.condition_values[0]?.name !== "radar-on" &&
-          detail.condition_values[0]?.name !== "swarm-yes" &&
-          detail.condition_values[0]?.name !== "slot2-ruby" &&
-          detail.condition_values[0]?.name !== "slot2-sapphire" &&
-          detail.condition_values[0]?.name !== "slot2-firered" &&
-          detail.condition_values[0]?.name !== "slot2-emerald" &&
-          detail.condition_values[0]?.name !== "slot2-leafgreen"
-        );
-      });
-    });
-  };
-  const swarmCondition = (pokemon) => {
-    return pokemon.filter((pokemon) => {
-      return pokemon.versionDetails[0].encounter_details.some((detail) => {
-        return detail.condition_values[0]?.name === "swarm-yes";
-      });
-    });
-  };
-  const radarCondition = (pokemon) => {
-    return pokemon.filter((pokemon) => {
-      return pokemon.versionDetails[0].encounter_details.some((detail) => {
-        return detail.condition_values[0]?.name === "radar-on";
-      });
-    });
-  };
+function Walk({ standardWalkPokemon, swarmPokemon, radarPokemon }) {
+  const [displayedTab, setDisplayedTab] = useState(0);
+  console.log(displayedTab);
 
-  pokemon && console.log(normalConditions(pokemon), swarmCondition(pokemon));
-  const standardWalkPokemon = pokemon && normalConditions(pokemon);
-  const swarmPokemon = pokemon && swarmCondition(pokemon);
-  const radarPokemon = pokemon && radarCondition(pokemon);
+  const handleTab = (e, displayTab) => {
+    e.preventDefault();
+    console.log(displayTab);
+    setDisplayedTab(displayTab);
+  };
 
   return (
     <>
@@ -49,7 +32,60 @@ function Walk({ pokemon }) {
           </div>
           <div className="sprite__walk"></div>
         </div>
-        <StandardWalk pokemon={standardWalkPokemon} />
+        <Box
+          sx={{
+            width: "fit-content",
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            margin: "0 auto",
+          }}
+        >
+          <Tabs
+            value={displayedTab}
+            onChange={handleTab}
+            textColor="inherit"
+            aria-label="method tabs"
+            TabIndicatorProps={{
+              sx: {
+                bgcolor: "red",
+                height: "5px",
+              },
+            }}
+          >
+            <Tab
+              value={0}
+              label="Standard walk"
+              sx={{
+                color: "white",
+                fontSize: "1rem",
+                padding: "0 2rem",
+                fontWeight: "bold",
+              }}
+            />
+            <Tab
+              value={1}
+              label="Swarm"
+              sx={{
+                color: "white",
+                fontSize: "1rem",
+                padding: "0 2rem",
+                fontWeight: "bold",
+              }}
+            />
+            <Tab
+              value={2}
+              label="PokeRadar"
+              sx={{
+                color: "white",
+                fontSize: "1rem",
+                padding: "0 2rem",
+                fontWeight: "bold",
+              }}
+            />
+          </Tabs>
+        </Box>
+        {displayedTab === 0 && <StandardWalk pokemon={standardWalkPokemon} />}
+        {displayedTab === 1 && <SwarmWalk pokemon={swarmPokemon} />}
+        {displayedTab === 2 && <PokeRadarWalk pokemon={radarPokemon} />}
       </div>
     </>
   );
