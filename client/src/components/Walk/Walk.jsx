@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import PixelBanner from "../PixelBanner/PixelBanner";
 import StandardWalk from "../StandardWalk/StandardWalk";
@@ -11,48 +11,15 @@ import Box from "@mui/material/Box";
 
 import "./Walk.scss";
 
-function Walk({ pokemon }) {
-  const normalConditions = (pokemon) => {
-    return pokemon.filter((pokemon) => {
-      return pokemon.versionDetails[0].encounter_details.some((detail) => {
-        return (
-          detail.condition_values[0]?.name !== "radar-on" &&
-          detail.condition_values[0]?.name !== "swarm-yes" &&
-          detail.condition_values[0]?.name !== "slot2-ruby" &&
-          detail.condition_values[0]?.name !== "slot2-sapphire" &&
-          detail.condition_values[0]?.name !== "slot2-firered" &&
-          detail.condition_values[0]?.name !== "slot2-emerald" &&
-          detail.condition_values[0]?.name !== "slot2-leafgreen"
-        );
-      });
-    });
-  };
-  const swarmCondition = (pokemon) => {
-    return pokemon.filter((pokemon) => {
-      return pokemon.versionDetails[0].encounter_details.some((detail) => {
-        return detail.condition_values[0]?.name === "swarm-yes";
-      });
-    });
-  };
-  const radarCondition = (pokemon) => {
-    return pokemon.filter((pokemon) => {
-      return pokemon.versionDetails[0].encounter_details.some((detail) => {
-        return detail.condition_values[0]?.name === "radar-on";
-      });
-    });
-  };
+function Walk({ standardWalkPokemon, swarmPokemon, radarPokemon }) {
+  // useEffect(() => {});
 
-  pokemon && console.log(normalConditions(pokemon), swarmCondition(pokemon));
-  const standardWalkPokemon = pokemon && normalConditions(pokemon);
-  const swarmPokemon = pokemon && swarmCondition(pokemon);
-  const radarPokemon = pokemon && radarCondition(pokemon);
-
-  const [displayedTab, setDisplayedTab] = useState(
-    <StandardWalk pokemon={standardWalkPokemon} />
-  );
+  const [displayedTab, setDisplayedTab] = useState(0);
+  console.log(displayedTab);
 
   const handleTab = (e, displayTab) => {
     e.preventDefault();
+    console.log(displayTab);
     setDisplayedTab(displayTab);
   };
 
@@ -69,24 +36,20 @@ function Walk({ pokemon }) {
         </div>
         <Box sx={{ width: "100%" }}>
           <Tabs
-            value={<StandardWalk pokemon={standardWalkPokemon} />}
+            value={displayedTab}
             onChange={handleTab}
             textColor="secondary"
             indicatorColor="secondary"
             aria-label="secondary tabs example"
           >
-            <Tab
-              value={<StandardWalk pokemon={standardWalkPokemon} />}
-              label="Regular"
-            />
-            <Tab value={<SwarmWalk pokemon={swarmPokemon} />} label="Swarm" />
-            <Tab
-              value={<PokeRadarWalk pokemon={radarPokemon} />}
-              label="PokeRadar"
-            />
+            <Tab value={0} label="Regular" />
+            <Tab value={1} label="Swarm" />
+            <Tab value={2} label="PokeRadar" />
           </Tabs>
         </Box>
-        {displayedTab}
+        {displayedTab === 0 && <StandardWalk pokemon={standardWalkPokemon} />}
+        {displayedTab === 1 && <SwarmWalk pokemon={swarmPokemon} />}
+        {displayedTab === 2 && <PokeRadarWalk pokemon={radarPokemon} />}
         {/* <StandardWalk pokemon={standardWalkPokemon} /> */}
       </div>
     </>

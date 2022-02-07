@@ -61,9 +61,47 @@ function PokemonListing({ version, route, setRoute }) {
   const goodRodPokemon = pokemon && filterByMethod(pokemon, "good-rod");
   const superRodPokemon = pokemon && filterByMethod(pokemon, "super-rod");
 
+  const normalConditions = (pokemon) => {
+    return pokemon.filter((pokemon) => {
+      return pokemon.versionDetails[0].encounter_details.some((detail) => {
+        return (
+          detail.condition_values[0]?.name !== "radar-on" &&
+          detail.condition_values[0]?.name !== "swarm-yes" &&
+          detail.condition_values[0]?.name !== "slot2-ruby" &&
+          detail.condition_values[0]?.name !== "slot2-sapphire" &&
+          detail.condition_values[0]?.name !== "slot2-firered" &&
+          detail.condition_values[0]?.name !== "slot2-emerald" &&
+          detail.condition_values[0]?.name !== "slot2-leafgreen"
+        );
+      });
+    });
+  };
+  const swarmCondition = (pokemon) => {
+    return pokemon.filter((pokemon) => {
+      return pokemon.versionDetails[0].encounter_details.some((detail) => {
+        return detail.condition_values[0]?.name === "swarm-yes";
+      });
+    });
+  };
+  const radarCondition = (pokemon) => {
+    return pokemon.filter((pokemon) => {
+      return pokemon.versionDetails[0].encounter_details.some((detail) => {
+        return detail.condition_values[0]?.name === "radar-on";
+      });
+    });
+  };
+
+  const standardWalkPokemon = walkPokemon && normalConditions(walkPokemon);
+  const swarmPokemon = walkPokemon && swarmCondition(walkPokemon);
+  const radarPokemon = walkPokemon && radarCondition(walkPokemon);
+
   return (
     <>
-      <Walk pokemon={walkPokemon} />
+      <Walk
+        standardWalkPokemon={standardWalkPokemon}
+        swarmPokemon={swarmPokemon}
+        radarPokemon={radarPokemon}
+      />
       <Surf pokemon={surfPokemon} />
       <Fishing
         oldRodPokemon={oldRodPokemon}

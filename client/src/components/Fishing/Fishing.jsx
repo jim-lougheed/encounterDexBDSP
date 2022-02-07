@@ -12,9 +12,7 @@ import Box from "@mui/material/Box";
 import "./Fishing.scss";
 
 function Fishing({ oldRodPokemon, goodRodPokemon, superRodPokemon }) {
-  const [displayedTab, setDisplayedTab] = useState(
-    <GoodRod pokemon={goodRodPokemon} />
-  );
+  const [displayedTab, setDisplayedTab] = useState(null);
 
   const handleTab = (e, displayTab) => {
     e.preventDefault();
