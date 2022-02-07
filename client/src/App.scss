@@ -7,11 +7,17 @@
   &__logo {
     display: block;
     margin: 0 auto;
+    min-width: 300px;
     padding: 4rem 0 2rem;
     width: 50vw;
   }
   &__image {
     -webkit-filter: drop-shadow(10px 10px rgb(67, 68, 8));
+    min-width: 300px;
     width: 50vw;
   }
+}
+
+.none-avl {
+  text-align: center;
 }

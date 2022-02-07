@@ -21,7 +21,7 @@ function StandardWalk({ pokemon }) {
             );
           })
         ) : (
-          <h2>No Pokémon available by walking</h2>
+          <h2 className="none-avl">No Pokémon available by walking</h2>
         )}
       </div>
     </>

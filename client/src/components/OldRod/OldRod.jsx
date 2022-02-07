@@ -21,7 +21,7 @@ function OldRod({ pokemon }) {
             );
           })
         ) : (
-          <h2>No Pokémon available by Old Rod</h2>
+          <h2 className="none-avl">No Pokémon available by Old Rod</h2>
         )}
       </div>
     </>

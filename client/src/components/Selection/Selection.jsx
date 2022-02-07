@@ -1,8 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./Selection.scss";
-
-import Pokeball from "../../assets/images/pokeball.png";
 
 function Selection({ setRoute, setRouteName, version }) {
   const navigate = useNavigate();
@@ -235,13 +233,6 @@ function Selection({ setRoute, setRouteName, version }) {
           <option value="celestic-town-area">Celestic Town</option>
           <option value="resort-area-area">Resort Area</option>
         </select>
-        {/* <Link to={route ? `/${version}/${route}` : "/"}>
-          <img
-            className="pokeball-button"
-            src={Pokeball}
-            alt="pokeball submit button"
-          />
-        </Link> */}
       </form>
     </>
   );

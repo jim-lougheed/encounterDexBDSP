@@ -33,6 +33,7 @@ function Fishing({ oldRodPokemon, goodRodPokemon, superRodPokemon }) {
         <Box
           sx={{
             width: "fit-content",
+            maxWidth: "330px",
             backgroundColor: "rgba(0, 0, 0, 0.7)",
             margin: "0 auto",
           }}
@@ -55,7 +56,7 @@ function Fishing({ oldRodPokemon, goodRodPokemon, superRodPokemon }) {
               sx={{
                 color: "white",
                 fontSize: "1rem",
-                padding: "0 2rem",
+                padding: "0 0.5rem",
                 fontWeight: "bold",
               }}
             />
@@ -66,7 +67,7 @@ function Fishing({ oldRodPokemon, goodRodPokemon, superRodPokemon }) {
               sx={{
                 color: "white",
                 fontSize: "1rem",
-                padding: "0 2rem",
+                padding: "0 0.5rem",
                 fontWeight: "bold",
               }}
             />
@@ -77,7 +78,7 @@ function Fishing({ oldRodPokemon, goodRodPokemon, superRodPokemon }) {
               sx={{
                 color: "white",
                 fontSize: "1rem",
-                padding: "0 2rem",
+                padding: "0 0.5rem",
                 fontWeight: "bold",
               }}
             />

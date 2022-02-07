@@ -21,23 +21,13 @@ function Home() {
         <h3 className="banner__subtitle">Select a game</h3>
         <div className="banner__container">
           <img className="banner-pokemon banner-pokemon--5" src={Dialga} />
-          {/* <div className="banner-pokemon__container">
-          <img className="banner-pokemon banner-pokemon--1" src={Turtwig} />
-          <img className="banner-pokemon banner-pokemon--2" src={Girafarig} />
-          <img className="banner-pokemon banner-pokemon--3" src={Houndoom} />
-          <img className="banner-pokemon banner-pokemon--4" src={Luxray} />
-          
-        </div> */}
           <VersionButtons />
           <img className="banner-pokemon banner-pokemon--6" src={Palkia} />
-          {/* <div className="banner-pokemon__container">
-          
-          <img className="banner-pokemon banner-pokemon--7" src={Chimchar} />
-          <img className="banner-pokemon banner-pokemon--8" src={Rhydon} />
-          <img className="banner-pokemon banner-pokemon--9" src={Crobat} />
-          <img className="banner-pokemon banner-pokemon--10" src={Piplup} />
-        </div> */}
         </div>
+        <h3 className="banner__advisory">
+          ***Currently only available for Diamond, Pearl and Platinum. More
+          versions to come...
+        </h3>
       </div>
     </>
   );

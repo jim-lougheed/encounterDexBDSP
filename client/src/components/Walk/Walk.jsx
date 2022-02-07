@@ -35,6 +35,7 @@ function Walk({ standardWalkPokemon, swarmPokemon, radarPokemon }) {
         <Box
           sx={{
             width: "fit-content",
+            maxWidth: "330px",
             backgroundColor: "rgba(0, 0, 0, 0.7)",
             margin: "0 auto",
           }}
@@ -53,11 +54,11 @@ function Walk({ standardWalkPokemon, swarmPokemon, radarPokemon }) {
           >
             <Tab
               value={0}
-              label="Standard walk"
+              label="Standard"
               sx={{
                 color: "white",
                 fontSize: "1rem",
-                padding: "0 2rem",
+                padding: "0 0.75rem",
                 fontWeight: "bold",
               }}
             />
@@ -67,17 +68,17 @@ function Walk({ standardWalkPokemon, swarmPokemon, radarPokemon }) {
               sx={{
                 color: "white",
                 fontSize: "1rem",
-                padding: "0 2rem",
+                padding: "0 0.75rem",
                 fontWeight: "bold",
               }}
             />
             <Tab
               value={2}
-              label="PokeRadar"
+              label="PokéRadar"
               sx={{
                 color: "white",
                 fontSize: "1rem",
-                padding: "0 2rem",
+                padding: "0 0.75rem",
                 fontWeight: "bold",
               }}
             />
