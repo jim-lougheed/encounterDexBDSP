@@ -21,7 +21,7 @@ function SuperRod({ pokemon }) {
             );
           })
         ) : (
-          <h2>No Pokémon available by Super Rod</h2>
+          <h2 className="none-avl">No Pokémon available by Super Rod</h2>
         )}
       </div>
     </>

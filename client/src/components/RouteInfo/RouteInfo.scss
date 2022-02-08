@@ -8,6 +8,18 @@
     padding-bottom: 2rem;
     position: relative;
   }
+  &__version-buttons-container {
+    padding: 3rem 0;
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+    @media screen and (min-width: 768px) {
+      width: 50%;
+    }
+    @media screen and (min-width: 1000px) {
+      width: 30%;
+    }
+  }
   &__header {
     align-self: center;
     align-items: center;
@@ -43,8 +55,13 @@
   }
   &__title {
     font-family: "Bolt";
+    margin: 0;
     max-width: 80%;
     text-align: center;
+
+    @media screen and (max-width: 767px) {
+      font-size: 1.5rem;
+    }
   }
 }
 

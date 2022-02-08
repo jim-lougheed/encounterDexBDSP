@@ -31,7 +31,7 @@ function Surf({ pokemon }) {
               );
             })
           ) : (
-            <h2>No Pokémon available by surfing</h2>
+            <h2 className="none-avl">No Pokémon available by surfing</h2>
           )}
         </div>
       </div>

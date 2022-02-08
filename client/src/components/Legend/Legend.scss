@@ -5,10 +5,16 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    @media screen and (max-width: 999px) {
+    @media screen and (max-width: 767px) {
+      padding: 0.5rem;
+      width: 100%;
+    }
+    @media screen and (min-width: 768px) {
       width: 50%;
     }
-    width: 30%;
+    @media screen and (min-width: 1000px) {
+      width: 30%;
+    }
   }
   &__title {
     font-family: "Bolt";
@@ -20,9 +26,13 @@
     grid-column-gap: 0.5rem;
     grid-row-gap: 0.75rem;
     grid-template-rows: auto auto;
+    margin: 0 auto;
     @media screen and (max-width: 999px) {
-      grid-template-columns: 5vw 20vw 5vw 20vw;
+      grid-template-columns: 10% 35% 10% 35%;
       grid-row-gap: 0.4rem;
+    }
+    @media screen and (min-width: 1000px) {
+      grid-template-columns: 15% 35% 15% 35%;
     }
   }
   &__value {

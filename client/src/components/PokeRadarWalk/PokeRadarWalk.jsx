@@ -21,7 +21,7 @@ function PokeRadarWalk({ pokemon }) {
             );
           })
         ) : (
-          <h2>No Pokémon available by PokéRadar</h2>
+          <h2 className="none-avl">No Pokémon available by PokéRadar</h2>
         )}
       </div>
     </>

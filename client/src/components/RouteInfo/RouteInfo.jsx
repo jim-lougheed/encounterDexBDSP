@@ -24,7 +24,9 @@ function RouteInfo() {
   return (
     <>
       <div className="route__container">
-        <VersionButtons />
+        <div className="route__version-buttons-container">
+          <VersionButtons />
+        </div>
         <div className="route__header route__header--desktop">
           <h1 className="route__title">
             {routeName ? routeName : "Select an area"}
@@ -63,7 +65,6 @@ function RouteInfo() {
           }
         />
       </Routes>
-      {/* <PokemonListing pokemon={filteredPokemon} version={version} /> */}
     </>
   );
 }
