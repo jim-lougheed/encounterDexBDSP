@@ -2,6 +2,7 @@
   &__app {
     background-image: url("./assets/images/banner.jpg");
     background-position: 0% 78%;
+    position: relative;
   }
 
   &__logo {
@@ -15,6 +16,30 @@
     -webkit-filter: drop-shadow(10px 10px rgb(67, 68, 8));
     min-width: 300px;
     width: 50vw;
+  }
+  &__back-button {
+    align-items: center;
+    background-color: red;
+    border: 5px solid yellow;
+    border-radius: 50px;
+    display: flex;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    padding: 0 0.5rem;
+    text-decoration: none;
+  }
+  &__button-pokeball {
+    width: 30px;
+  }
+  &__button-arrow {
+    margin: 0.5rem;
+    width: 15px;
+  }
+  &__button-text {
+    color: white;
+    font-weight: bold;
+    margin: 0 0.5rem;
   }
 }
 
