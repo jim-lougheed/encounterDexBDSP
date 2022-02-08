@@ -1,0 +1,71 @@
+@use "../../styles/fonts";
+
+.route {
+  &__container {
+    background-color: rgb(127, 172, 113);
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 2rem;
+    position: relative;
+  }
+  &__version-buttons-container {
+    padding: 3rem 0;
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+    @media screen and (min-width: 768px) {
+      width: 50%;
+    }
+    @media screen and (min-width: 1000px) {
+      width: 30%;
+    }
+  }
+  &__header {
+    align-self: center;
+    align-items: center;
+    background-image: url("../../assets/images/title-card.png");
+    background-size: cover;
+    background-position: 70% 45%;
+    border: 0.75rem solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media screen and (max-width: 999px) {
+      width: 70vw;
+    }
+    @media screen and (min-width: 1000px) {
+      height: 20vw;
+      min-height: 200px;
+      width: 30vw;
+    }
+    &--mobile-tablet {
+      @media screen and (min-width: 1000px) {
+        display: none;
+      }
+      @media screen and (max-width: 999px) {
+        margin: 0 auto;
+        height: 40vw;
+      }
+    }
+    &--desktop {
+      @media screen and (max-width: 999px) {
+        display: none;
+      }
+    }
+  }
+  &__title {
+    font-family: "Bolt";
+    margin: 0;
+    max-width: 80%;
+    text-align: center;
+
+    @media screen and (max-width: 767px) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.hidden-background {
+  background-color: rgb(127, 172, 113);
+  padding-bottom: 2rem;
+}

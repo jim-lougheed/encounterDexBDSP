@@ -1,34 +1,70 @@
 import { useEffect, useState } from "react";
+import { Route, Routes, useParams } from "react-router-dom";
 import axios from "axios";
 
-function RouteInfo({ route }) {
-  const [pokemon, setPokemon] = useState(null);
-  useEffect(() => {
-    getPokemon();
-  }, [route]);
+import PokemonListing from "../PokemonListing/PokemonListing";
+import Selection from "../Selection/Selection";
+import Legend from "../Legend/Legend";
+import VersionButtons from "../VersionButtons/VersionButtons";
 
-  const getPokemon = async () => {
-    const { data } = await axios.get(`http://localhost:8080/${route}`);
-    setPokemon(data.pokemon_encounters);
-  };
+import "./RouteInfo.scss";
+
+function RouteInfo() {
+  const params = useParams();
+
+  const [version, setVersion] = useState(null);
+  const [route, setRoute] = useState(null);
+  const [routeName, setRouteName] = useState(null);
+
+  useEffect(() => {
+    setVersion(params.version);
+  }, [params]);
+  console.log(version, route, routeName, params);
 
   return (
     <>
-      <h1>Route Info</h1>
-      <p>{route}</p>
-      <ul>
-        {pokemon &&
-          pokemon.map((pokemon) => {
-            console.log(pokemon);
-            {
-              /* if (pokemon.version_details.version.name === "pearl") { */
-            }
-            return <li>{pokemon.pokemon.name}</li>;
-            {
-              /* } */
-            }
-          })}
-      </ul>
+      <div className="route__container">
+        <div className="route__version-buttons-container">
+          <VersionButtons />
+        </div>
+        <div className="route__header route__header--desktop">
+          <h1 className="route__title">
+            {routeName ? routeName : "Select an area"}
+          </h1>
+          <Selection
+            route={route}
+            setRoute={setRoute}
+            setRouteName={setRouteName}
+            version={version}
+          />
+        </div>
+        <Legend />
+      </div>
+      <div className="hidden-background">
+        <div className="route__header route__header--mobile-tablet">
+          <h1 className="route__title">
+            {routeName ? routeName : "Select an area"}
+          </h1>
+          <Selection
+            route={route}
+            setRoute={setRoute}
+            setRouteName={setRouteName}
+            version={version}
+          />
+        </div>
+      </div>
+      <Routes>
+        <Route
+          path=":location"
+          element={
+            <PokemonListing
+              route={route}
+              setRoute={setRoute}
+              version={version}
+            />
+          }
+        />
+      </Routes>
     </>
   );
 }

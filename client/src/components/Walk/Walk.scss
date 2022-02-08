@@ -1,0 +1,50 @@
+.walk-container {
+  background: url("../../assets/images/walk-image1.png");
+  position: relative;
+}
+
+.sprite__walk {
+  height: 60px;
+  width: 50px;
+  background: url("../../assets/sprites/lucas-walk-sheet-2-removebg-preview.png")
+    0px 0px;
+  animation: play-walk 0.5s steps(3) infinite;
+  z-index: 2;
+}
+@keyframes play-walk {
+  100% {
+    background-position: 208px 0;
+  }
+}
+
+.method {
+  &__banner {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  &__header {
+    align-items: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin: 0 1rem;
+    width: 10vw;
+    z-index: 1;
+    &--walk {
+      background-color: rgb(79, 192, 79);
+    }
+    &--surf {
+      background-color: rgb(134, 134, 243);
+    }
+  }
+  &__title {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    @media screen and (max-width: 999px) {
+      font-size: 1.5rem;
+    }
+  }
+}
