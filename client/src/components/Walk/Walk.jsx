@@ -13,11 +13,9 @@ import "./Walk.scss";
 
 function Walk({ standardWalkPokemon, swarmPokemon, radarPokemon }) {
   const [displayedTab, setDisplayedTab] = useState(0);
-  console.log(displayedTab);
 
   const handleTab = (e, displayTab) => {
     e.preventDefault();
-    console.log(displayTab);
     setDisplayedTab(displayTab);
   };
 

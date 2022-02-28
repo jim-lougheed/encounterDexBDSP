@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import { API_URL } from "../../config";
+
 import "./Sprite.scss";
 
 function Sprite({ pokemonName }) {
@@ -10,9 +12,7 @@ function Sprite({ pokemonName }) {
   }, [pokemonName]);
 
   const getPokemonSprite = async () => {
-    const { data } = await axios.get(
-      `http://localhost:8080/pokemonPic/${pokemonName}`
-    );
+    const { data } = await axios.get(`${API_URL}/pokemonPic/${pokemonName}`);
     setPokemonSprite(data.sprites.front_default);
   };
 

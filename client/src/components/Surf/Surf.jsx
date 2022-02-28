@@ -5,7 +5,6 @@ import PixelBanner from "../PixelBanner/PixelBanner";
 import "./Surf.scss";
 
 function Surf({ pokemon }) {
-  console.log(pokemon);
   return (
     <>
       <div className="surf-container">
@@ -19,9 +18,9 @@ function Surf({ pokemon }) {
         </div>
         <div className="surf-pokemon__container">
           {pokemon && pokemon.length !== 0 ? (
-            pokemon.map((pokemon) => {
+            pokemon.map((pokemon, i) => {
               return (
-                <div className="surf-pokemon__card">
+                <div key={i} className="surf-pokemon__card">
                   <p className="surf-pokemon__name">
                     {pokemon.name[0].toUpperCase() + pokemon.name.substr(1)}
                   </p>

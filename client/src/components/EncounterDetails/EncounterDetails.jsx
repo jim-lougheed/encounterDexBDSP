@@ -1,8 +1,6 @@
 import "./EncounterDetails.scss";
 
 function EncounterDetails({ pokemon: { versionDetails } }) {
-  console.log(versionDetails);
-
   const maxLevel = versionDetails[0].encounter_details.reduce((acc, detail) => {
     return detail.max_level > acc ? detail.max_level : acc;
   }, 0);

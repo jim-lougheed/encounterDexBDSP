@@ -12,7 +12,6 @@ function PixelBanner({ banner }) {
     pix[i].style.animationDelay = Math.random() * 5000 + "ms";
   }
 
-  console.log(banner);
   return (
     <>
       <div className="pixel__container">

@@ -6,6 +6,8 @@ import Walk from "../Walk/Walk";
 import Surf from "../Surf/Surf";
 import Fishing from "../Fishing/Fishing";
 
+import { API_URL } from "../../config";
+
 function PokemonListing({ version, route, setRoute }) {
   const params = useParams();
 
@@ -17,10 +19,9 @@ function PokemonListing({ version, route, setRoute }) {
   }, [route]);
 
   const getPokemon = async () => {
-    console.log("test");
     const {
       data: { pokemon_encounters },
-    } = await axios.get(`http://localhost:8080/${route}`);
+    } = await axios.get(`${API_URL}/${route}`);
     const filteredPokemon = filterByVersion(pokemon_encounters);
     setPokemon(filteredPokemon);
   };
@@ -44,8 +45,6 @@ function PokemonListing({ version, route, setRoute }) {
       });
     return filtered;
   };
-
-  pokemon && console.log(pokemon);
 
   const filterByMethod = (pokemon, method) => {
     return pokemon.filter((pokemon) => {

@@ -1,8 +1,11 @@
+.App {
+  position: relative;
+}
+
 .header {
   &__app {
     background-image: url("./assets/images/banner.jpg");
     background-position: 0% 78%;
-    position: relative;
   }
 
   &__logo {

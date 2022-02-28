@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# encounterDex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+is an encyclopedia of Pokémon available on all the routes and areas of the main Pokémon series entries. For every route of each game, encounterDex lists the Pokémon available by walking, surfing and fishing and filtered by various encounter methods. It also lists the chance of catching them and their available levels.
+
+## Creator information
+
+Creator: Jim Lougheed
+
+Email: jims.codes@gmail.com
+
+GitHub: https://github.com/jim-lougheed/
+
+Twitter: https://twitter.com/JimsCodes
+
+LinkedIn: https://www.linkedin.com/in/jim-lougheed/
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project director, you can run:
+
+## In `client` folder
 
 ### `npm start`
 
-Runs the app in the development mode.\
+This runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## In `server` folder
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm start`
 
-### `npm run build`
+This launches the server and makes relevant API calls.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Home Page](./server/public/readme-captures/landing-page.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+From the home page, users can select the game they are playing to access that route.
 
-### `npm run eject`
+![Switch games](./server/public/readme-captures/game-selection.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+At any point, the user can select a different game by clicking on the selection (not available for mobile view, but the home page is accessible via the "Go back" button).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Selecting a route](./server/public/readme-captures/route-selection.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Once a game is selected, the user can select a route or area from the drop-down menu.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Walking method](./server/public/readme-captures/walking.png)
 
-## Learn More
+The Walking section displays all Pokémon available by walking in the grass. There are 3 tabs:
+Standard, PokéRadar and Swarm. Click on each to toggle Pokémon available with the selected method.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Surfing method](./server/public/readme-captures/surfing.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The Surfing section displays all Pokémon available by surfing on the water.
 
-### Code Splitting
+![Fishing method](./server/public/readme-captures/fishing.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The Fishing section displays all Pokémon available by using a rod in the water. There are 3 tabs, one for each rod:
+Old Rod, Good Rod and Super Rod
 
-### Analyzing the Bundle Size
+![Legend](./server/public/readme-captures/legend.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The legend advises on what each of the encounter condition symbols/abbreviations on each Pokémon card refer to.
 
-### Making a Progressive Web App
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### [React](https://reactjs.org/)
 
-### Advanced Configuration
+Created with `create-react-app` using the React JS library.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### [PokéAPI](https://pokeapi.co/)
 
-### Deployment
+Web API that retrieves a variety of information about Pokémon and related data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### [Material UI](https://mui.com/)
 
-### `npm run build` fails to minify
+Built with Material UI framework components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### [Node.js](https://nodejs.org/en/)
+
+Runs server.
+
+### [Express](http://expressjs.com/)
+
+Express web framework for Node.js.
+
+### [Axios](https://axios-http.com/)
+
+Axios HTTP client makes API calls to spoonacular API.
+
+### [SASS](https://sass-lang.com/)
+
+CSS extension language used with BEM naming principles.
+
+## Roadmap
+
+encounterDex currently hosts capabilities to search route information for all main Pokémon series games. However, only information for Diamond, Pearl and Platinum are available through using the site's interface.
+
+The ability to retrieve Pokémon encounter information for other games will be added series by series as the Selection component is updated.
+
+The adding of encounter information for other game entries may require new components due to varying methods in the games, and so this may take longer.
+
+Furthermore, once all games are searchable, further functionality will be added to the application, such as the ability to search by Pokémon.
+
+## Support
+
+Contributions, issues, and feature requests are welcome!
+Give a ⭐️ if you like this project!

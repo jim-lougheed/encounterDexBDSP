@@ -4,14 +4,13 @@ import EncounterDetails from "../EncounterDetails/EncounterDetails";
 import "./PokeRadarWalk.scss";
 
 function PokeRadarWalk({ pokemon }) {
-  console.log(pokemon);
   return (
     <>
       <div className="walk-pokemon__container">
         {pokemon && pokemon.length !== 0 ? (
-          pokemon.map((pokemon) => {
+          pokemon.map((pokemon, i) => {
             return (
-              <div className="walk-pokemon__card">
+              <div key={i} className="walk-pokemon__card">
                 <h2 className="walk-pokemon__name">
                   {pokemon.name[0].toUpperCase() + pokemon.name.substr(1)}
                 </h2>
